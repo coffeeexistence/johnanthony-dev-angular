@@ -1,0 +1,32 @@
+<div layout="row" layout-align="center center">
+  <md-card layout-padding layout-align="center center" flex="70">
+    <h2>John Anthony Rivera</h2>
+    <p>951-553-4461 | johnanthony.dev@gmail.com | github: coffeeexistence | johnanthony-dev.com</p>
+  </md-card>
+</div>
+
+<div layout="row"  layout-align="center center"  >
+  <div flex="70">
+    <h2>Technical Experience</h2>
+    <div class="indented">
+      <div ng-repeat="project in ctrl.technicalExperience">
+        <portfolio-project project="project" ></portfolio-project>
+        <md-divider ng-if="!$last"></md-divider>
+      </div>
+    </div>
+
+    <h2>Employment History</h2>
+    <md-list class="indented">
+
+      <div ng-repeat="job in ctrl.history">
+        <h3>{{job.name}}</h3>
+        <md-list-item ng-repeat="point in job.points">
+          <div class="md-list-item-text">{{point}}</div>
+        </md-list-item>
+        <md-divider ng-if="!$last"></md-divider>
+      </div>
+
+    </md-list>
+
+  </div>
+</div>

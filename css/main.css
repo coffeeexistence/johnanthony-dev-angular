@@ -1,0 +1,33 @@
+html {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+.indented {
+  margin-left: 3em;
+}
+
+.hovered {
+  background-color: #F9F9F9;
+}
+
+.expanded {
+  background-color: #F9F9F9;
+  margin: 40px 0px 40px 0px;
+}
+
+.noborder {
+  border-style: hidden;
+  outline: none;
+}
+
+.project-container {
+  padding-left: 8px;
+}
+
+.project-extra-content {
+  padding: 1em;
+}
