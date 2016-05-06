@@ -1,32 +1,65 @@
 <div layout="row" layout-align="center center">
-  <md-card layout-padding layout-align="center center" flex="70">
-    <h2>John Anthony Rivera</h2>
-    <p>951-553-4461 | johnanthony.dev@gmail.com | github: coffeeexistence | johnanthony-dev.com</p>
-  </md-card>
+  <div class="portfolio-header md-whiteframe-z2" layout-padding flex-gt-sm="70" flex="100">
+
+    <div layout="column">
+
+      <div>
+        <img id="me" src="img/me.png" />
+      </div>
+
+      <div class="name centered-margins">John Anthony Rivera</div>
+
+      <div flex-gt-sm="70" flex="95" layout="row" layout-wrap layout-align="space-around center">
+        <div class="contact-item">951-553-4461</div>
+        <div class="contact-item">johnanthony.dev@gmail.com</div>
+        <div class="contact-item">github: coffeeexistence</div>
+        <div class="contact-item">johnanthony-dev.com</div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
-<div layout="row"  layout-align="center center"  >
-  <div flex="70">
-    <h2>Technical Experience</h2>
-    <div class="indented">
-      <div ng-repeat="project in ctrl.technicalExperience">
-        <portfolio-project project="project" ></portfolio-project>
-        <md-divider ng-if="!$last"></md-divider>
+<div layout="row"  layout-align="center center">
+
+  <div layout="row" layout-wrap layout-align="start start" flex-gt-sm="70" flex="99">
+
+      <div id="left" flex-gt-xs="60" flex-xs="100" layout="column" layout-wrap>
+        <div id="experience">
+          <h2>Technical Experience</h2>
+          <div class="indented">
+            <div ng-repeat="project in ctrl.technicalExperience">
+              <portfolio-project project="project" ></portfolio-project>
+              <md-divider ng-if="!$last"></md-divider>
+            </div>
+          </div>
+        </div>
+        <div id="history">
+          <h2>Employment History</h2>
+          <md-list class="indented">
+            <div ng-repeat="job in ctrl.history">
+              <h3>{{job.name}}</h3>
+              <md-list-item ng-repeat="point in job.points">
+                <div class="md-list-item-text">{{point}}</div>
+              </md-list-item>
+              <md-divider ng-if="!$last"></md-divider>
+            </div>
+          </md-list>
+        </div>
+    </div>
+
+    <div id="right" class="skill-set" flex-gt-xs="30" flex-xs="100" layout="column" layout-align="start start">
+      <h2>Skill & Competencies</h2>
+      <div class="skill" ng-repeat="tier1 in ctrl.skills">
+        <h3>{{tier1.title}}</h3>
+        <div class="sub-skill" ng-repeat="tier2 in tier1.subSkills">
+          <h4>{{tier2.title}}</h4>
+          <div class="sub-skill" ng-repeat="tier3 in tier2.subSkills">
+            <h5>{{tier3.title}}</h5>
+          </div>
+        </div>
       </div>
     </div>
 
-    <h2>Employment History</h2>
-    <md-list class="indented">
-
-      <div ng-repeat="job in ctrl.history">
-        <h3>{{job.name}}</h3>
-        <md-list-item ng-repeat="point in job.points">
-          <div class="md-list-item-text">{{point}}</div>
-        </md-list-item>
-        <md-divider ng-if="!$last"></md-divider>
-      </div>
-
-    </md-list>
-
-  </div>
 </div>

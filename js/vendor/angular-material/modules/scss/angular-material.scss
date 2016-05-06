@@ -4364,7 +4364,6 @@ md-menu-content._md-menu-bar-menu.md-dense {
 
 .md-panel {
   opacity: 0;
-  overflow: auto;
   position: fixed;
 
   &._md-panel-shown {
@@ -6675,7 +6674,6 @@ md-tooltip {
   &._md-show {
     transition: $swift-ease-out;
     pointer-events: auto;
-    will-change: opacity, height, width;
   }
 }
 

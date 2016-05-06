@@ -1,5 +1,66 @@
 function PortfolioController($sce){
 	var ctrl = this;
+
+  ctrl.skills = [
+    {
+      title: 'Ruby',
+      subSkills: [
+        {title: 'Test Driven Development'},
+        {title: 'Refactoring'},
+        {title: 'Best Practices'},
+        {
+          title: 'Object Orientation',
+          subSkills: [
+            {title: 'Attribute Accessors'},
+            {title: 'Instance & Class Methods'}
+          ]
+        },
+        {
+          title: 'Rails Framework',
+          subSkills: [
+            {title: 'ActiveRecord'},
+            {title: 'ActiveView'},
+            {title: 'Controllers'},
+            {title: 'Devise'},
+            {title: 'ERB'},
+            {title: 'Deployment'}
+          ]
+        }
+      ]
+    },
+    {
+      title: 'JavaScript',
+      subSkills: [
+        {
+          title: 'AngularJS',
+          subSkills: [
+            {title: 'Controllers'},
+            {title: 'Directives'},
+            {title: 'Services'},
+            {title: 'Routing'},
+            {title: 'Asynchronous callbacks'},
+            {title: '$scope'},
+            {title: '$http'}
+          ]
+        },
+        {title: 'jQuery'}
+      ]
+    },
+    {
+      title: 'HTML & CSS',
+      subSkills: [
+        {title: 'Formatting'},
+        {title: 'Positioning'},
+        {title: 'Selectors'},
+        {title: 'Media Queries'},
+        {title: 'SASS'}
+      ]
+    },
+
+
+  ];
+
+
   ctrl.technicalExperience = [
     {
       name: 'MixCritic',
@@ -12,7 +73,11 @@ function PortfolioController($sce){
         'Integrated Material Design for user interface',
         'Connected to Amazon S3 for data storage'
       ],
-      videoSrc: 'https://www.youtube.com/embed/SlNoUv6_LnQ'
+      links: [
+        {title: 'Video Walkthrough', url: 'https://www.youtube.com/watch?v=SlNoUv6_LnQ'},
+        {title: 'Github', url: 'https://github.com/coffeeexistence/mixcritic-angular'},
+        {title: 'Live Demo', url: 'http://mix-critic.herokuapp.com/'}
+      ]
     },
     {
       name: 'Movie Scraper',
@@ -21,13 +86,20 @@ function PortfolioController($sce){
         'Scraped from Fandango and Rottentomatoes using Nokogiri ',
         'Accessed movie theater distance information via Google Maps API',
         'Collected and sorted movies by rating'
+      ],
+      links: [
+        {title: 'Video Walkthrough', url: 'https://www.youtube.com/watch?v=U_UHuH6WQjM'},
+        {title: 'Github', url: 'https://github.com/coffeeexistence/LocalMovies-project'}
       ]
     },
     {
       name: 'Tic Tac Toe AI',
       description: 'Will always end in a Win or “Cat’s Game”, if maximum difficulty is selected.',
       points: [
-        'Recursively searches through each possible move and sub-moves, calculates wins, losses, or draws',
+        'Recursively searches through each possible move and sub-moves, calculates wins, losses, or draws'
+      ],
+      links: [
+        {title: 'Gist', url: 'https://gist.github.com/coffeeexistence/02130b87bfd085711cca9f124aba89e2'}
       ]
     }
   ];
