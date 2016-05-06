@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       },
       all: {
         src: [
-          "js/vendor/angular-material/angular-material.css",
+          "vendor/angular-material/angular-material.css",
           "css/*.css"
       ],
         dest: "dist/styles.css"
@@ -20,12 +20,12 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-          "js/vendor/angular/angular.js",
-          "js/vendor/angular-aria/angular-aria.js",
-          "js/vendor/angular-animate/angular-animate.js",
-          "js/vendor/angular-material/angular-material.js",
-          "js/vendor/angular-ui-router/release/angular-ui-router.min.js",
-          "js/vendor/angular-sanitize/angular-sanitize.min.js",
+          "vendor/angular/angular.js",
+          "vendor/angular-aria/angular-aria.js",
+          "vendor/angular-animate/angular-animate.js",
+          "vendor/angular-material/angular-material.js",
+          "vendor/angular-ui-router/release/angular-ui-router.min.js",
+          "vendor/angular-sanitize/angular-sanitize.min.js",
           "js/app/app.js",
           "js/app/portfolio/PortfolioController.js",
           "js/app/portfolio/portfolioProject.js"
