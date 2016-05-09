@@ -14,7 +14,7 @@
         };
     	},
   		controllerAs: 'projectCtrl',
-  		templateUrl: 'js/app/portfolio/project.tpl.html',
+  		templateUrl: 'templates/project.tpl.html',
   		link: function(scope, elem, attrs, ctrl) {
 
   		}

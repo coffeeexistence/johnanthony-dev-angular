@@ -108,6 +108,11 @@ h2 {
   width: 18%;
 }
 
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
 @media (max-width: 1400px) {
   .portfolio-header {
     font-size: 0.9em;
