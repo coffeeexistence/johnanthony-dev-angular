@@ -1,0 +1,9 @@
+I AM TIC TAC
+
+<div ng-if="loaded" class="game-board" layout="column" layout-wrap>
+  {{game}}
+  <hr />
+  <div ng-repeat="slot in game.board track by $index" class="game-slot">
+    {{slot}}
+  </div>
+</div>

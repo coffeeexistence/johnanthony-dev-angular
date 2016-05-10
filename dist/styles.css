@@ -155,3 +155,12 @@ h2 {
     width: 100%;
   }
 }
+.game-board {
+  width: 50%;
+}
+
+.game-slot {
+  width: 33%;
+  display: inline;
+  background: #fff;
+}

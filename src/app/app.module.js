@@ -1,6 +1,9 @@
 angular
   .module( 'app', [ 'ngMaterial', 'ui.router', 'ngSanitize'] )
-    .config(function($stateProvider, $urlMatcherFactoryProvider, $sceDelegateProvider){
+    .config(function($httpProvider, $stateProvider, $urlMatcherFactoryProvider, $sceDelegateProvider){
+
+      $httpProvider.defaults.useXDomain = true;
+      delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
       $sceDelegateProvider.resourceUrlWhitelist([
         'self',
@@ -23,4 +26,5 @@ angular
           controller: 'TicTacController',
           controllerAs: 'TicTacCtrl'
         });
+
     });
