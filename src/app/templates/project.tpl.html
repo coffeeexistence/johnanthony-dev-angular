@@ -1,0 +1,25 @@
+<div ng-click="projectCtrl.toggleExpansion();"
+  ng-mouseover="hover=true"
+  ng-mouseleave="hover=false"
+  ng-class="{'hovered': hover, 'md-whiteframe-z2 expanded': projectCtrl.expanded}"
+  class="noborder project-container">
+  <div class="slight-indent">
+    <div layout="row" layout-align="space-between center">
+      <h3>{{project.name}}</h3>
+
+      <div ng-show="hover" class="hover-text">
+        <span ng-show="!projectCtrl.expanded">(Click to expand)</span>
+        <span ng-show="projectCtrl.expanded">(Click to collapse)</span>
+      </div>
+
+    </div>
+
+    <div class="list-item" ng-repeat="point in project.points">
+      <div class="">{{point}}</div>
+    </div>
+    <md-divider ng-if="projectCtrl.expanded"></md-divider>
+    <div ng-show="projectCtrl.expanded" class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center" ng-click="">
+      <a ng-repeat="link in project.links" ng-href="{{link.url}}">{{link.title}}</a>
+    </div>
+  </div>
+</div>

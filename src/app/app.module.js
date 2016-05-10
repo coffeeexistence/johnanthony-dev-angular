@@ -9,14 +9,10 @@ angular
 
       $urlMatcherFactoryProvider.strictMode(false);
       $stateProvider
-        .state('home', {
-          url: '',
-          template: 'I am home.'
-        })
 
         .state('portfolio', {
-          url: '/portfolio',
-          templateUrl: '/templates/portfolio.html',
+          url: '',
+          templateUrl: 'templates/portfolio.tpl.html',
           controller: 'PortfolioController',
           controllerAs: 'ctrl'
         });

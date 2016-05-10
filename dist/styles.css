@@ -16,6 +16,10 @@ html {
   margin-left: 1em;
 }
 
+.slight-indent {
+  margin-left: 0.5em;
+}
+
 .hovered {
   background-color: #F9F9F9;
 
@@ -24,6 +28,7 @@ html {
 .expanded {
   background-color: #F9F9F9;
   margin: 40px 0px 40px 0px;
+
 }
 
 .noborder {
@@ -111,6 +116,11 @@ h2 {
 .clearfix {
   overflow: auto;
   zoom: 1;
+}
+
+.header {
+  background-color: #26283C;
+  color: white;
 }
 
 @media (max-width: 1400px) {
