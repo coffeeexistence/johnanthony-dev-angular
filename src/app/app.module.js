@@ -15,5 +15,12 @@ angular
           templateUrl: 'templates/portfolio.tpl.html',
           controller: 'PortfolioController',
           controllerAs: 'ctrl'
+        })
+
+        .state('tictac', {
+          url: '/tictac',
+          templateUrl: 'templates/tictac.tpl.html',
+          controller: 'TicTacController',
+          controllerAs: 'TicTacCtrl'
         });
     });
