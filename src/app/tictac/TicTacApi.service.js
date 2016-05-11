@@ -1,6 +1,6 @@
 function TicTacApi($http){
   var service = this;
-  var apiPath = 'http://localhost:3000/api/game';
+  var apiPath = 'https://ttt-rails-backend.herokuapp.com/api/game';
 
   service.create = function(data) {
     return $http.post(apiPath, data);
