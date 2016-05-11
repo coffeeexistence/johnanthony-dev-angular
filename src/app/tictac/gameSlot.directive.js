@@ -4,6 +4,7 @@ function gameSlot() {
 		scope: {
 			index: '='
 		},
+    //require: '^TicTacController',
 		controller: ['$sce', '$scope', function($sce, $scope){
 			var ctrl =  this;
 			$scope.show = false;
@@ -15,16 +16,20 @@ function gameSlot() {
 			};
 
       ctrl.slot = function(){
-        var slot = $scope.$parent.game.board[$scope.index];
+        var slot = $scope.$parent.game.board[$scope.index-1];
         if (slot === " ") {slot = "empty"}
         //debugger;
         return slot;
       };
 
+      $scope.select = function() {
+        $scope.$emit('selectPosition', $scope.index);
+      };
+
   	}],
 		controllerAs: 'slotCtrl',
 		template: [
-			'<td ng-if="show">{{slotCtrl.slot()}} - {{index}}</td>'
+			'<div ng-if="show" ng-click="select()">{{slotCtrl.slot()}} - {{index}}</div>'
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch('index', function (index) {

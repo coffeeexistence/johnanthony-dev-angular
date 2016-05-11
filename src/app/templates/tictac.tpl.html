@@ -1,27 +1,30 @@
 I AM TIC TAC
 
+Difficulty:<input type="text" ng-model="difficulty" /> <br />
+<button ng-click="TicTacCtrl.init()">Start Game</button>
+
 <div ng-if="loaded"  layout="column" layout-wrap>
   <h3>Your session id is: {{game.id}}</h3>
   {{game}}
   <hr />
     <table class="game-board" border="1" cellpadding="40">
 			<tr>
-				<td game-slot index="0"></td>
 				<td game-slot index="1"></td>
 				<td game-slot index="2"></td>
+				<td game-slot index="3"></td>
 			</tr>
 			<tr>
-				<td game-slot index="3"></td>
 				<td game-slot index="4"></td>
 				<td game-slot index="5"></td>
+				<td game-slot index="6"></td>
 			</tr>
 			<tr>
-				<td game-slot index="6"></td>
 				<td game-slot index="7"></td>
 				<td game-slot index="8"></td>
+				<td game-slot index="9"></td>
 			</tr>
 		</table>
-
+    <button ng-click="TicTacCtrl.getAiMove()">Get AI Move</button>
     <br />
 
 </div>

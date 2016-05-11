@@ -52,13 +52,22 @@ module.exports = function(grunt) {
           'build/app_src.min.js',
         ],
         dest: 'dist/app.min.js'
+      },
+
+      bundle_dev: {
+        src: [
+          'build/vendor.min.js',
+          'build/app_src.js',
+        ],
+        dest: 'dist/app.min.js'
       }
     },
 
 
     uglify: {
         options: {
-          mangle: false
+          mangle: false,
+          beautify: true
         },
         my_target: {
           files: {
@@ -98,6 +107,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concat-css');
 
 
-  grunt.registerTask('default', ['concat_css', 'concat:vendor', 'ngtemplates', 'concat:app_src', 'uglify', 'concat:bundle' ]);
+  //grunt.registerTask('default', ['concat_css', 'concat:vendor', 'ngtemplates', 'concat:app_src', 'uglify', 'concat:bundle' ]); // Production
+  grunt.registerTask('default', ['concat_css', 'concat:vendor', 'ngtemplates', 'concat:app_src', 'concat:bundle_dev' ]); // Development
 
 };
