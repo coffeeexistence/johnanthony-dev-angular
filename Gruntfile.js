@@ -38,7 +38,8 @@ module.exports = function(grunt) {
           "vendor/angular-animate/angular-animate.min.js",
           "vendor/angular-material/angular-material.min.js",
           "vendor/angular-ui-router/release/angular-ui-router.min.js",
-          "vendor/angular-sanitize/angular-sanitize.min.js"
+          "vendor/angular-sanitize/angular-sanitize.min.js",
+          'vendor/angular-bind-html-compile/angular-bind-html-compile.min.js'
         ],
         dest: 'build/vendor.min.js'
       },

@@ -1,5 +1,5 @@
 angular
-  .module( 'app', [ 'ngMaterial', 'ui.router', 'ngSanitize'] )
+  .module( 'app', [ 'ngMaterial', 'ui.router', 'ngSanitize', 'angular-bind-html-compile'] )
     .config(function($httpProvider, $stateProvider, $urlMatcherFactoryProvider, $sceDelegateProvider){
 
       $httpProvider.defaults.useXDomain = true;

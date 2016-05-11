@@ -53,15 +53,44 @@ function TicTacController($sce, $scope, TicTacApi){
 		ctrl.updateTurn();
 	};
 
+	$scope.gameStatus = function() {
+		var status = {over: false};
+		if ($scope.game.info.winner) {
+			status.over = true;
+			if(status.winner === $scope.game.p1_token) { status.type = 'won' }
+			else { status.type = 'lost' }
+		} else if ($scope.game.info.draw == true) {
+			status.over = true;
+			status.type = 'draw';
+		}
+		return status;
+	};
+
+	$scope.gameOverMessage = function() {
+		switch($scope.gameStatus().type) {
+			case 'won':
+				return 'You Won!!';
+			case 'lost':
+				return 'You Lost :('
+				case 'draw':
+					return 'Draw'
+		}
+	};
+
+
 	ctrl.responseToGame = function(response) {
 		var game = response.data.game_session;
+		game.info = response.data.game_data;
 		game.board = game.board_state.split('');
 		return game;
 	};
 
 	ctrl.playerMove = function(event, position) {
-
-		ctrl.updateState(position)
+		if (!$scope.gameStatus().over) {
+			if (ctrl.currentPlayer().name === 'Player') {
+				ctrl.updateState(position);
+			} else { $scope.message += ", please wait your turn." }
+		} else { $scope.gameOverAlert = "This game is over, you'll have to start a new game." }
 	};
 
 	ctrl.updateState = function(position) {

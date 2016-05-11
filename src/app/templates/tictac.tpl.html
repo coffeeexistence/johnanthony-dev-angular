@@ -1,33 +1,41 @@
-<div class="game-container">
+<div layout="column" layout-align="center center" class="game-container">
 
-  <h2>I AM TIC TAC</h2>
-  Difficulty:<input type="text" ng-model="difficulty" /> <br />
-  <button ng-click="TicTacCtrl.init()">Start Game</button>
+  <div layout-align="center center" layout="column">
+    <h2>I AM TIC TAC</h2>
+
+    <md-radio-group ng-model="difficulty">
+        <p>Difficulty:</p>
+        <md-radio-button value="0">Too Easy</md-radio-button>
+        <md-radio-button value="4">Literally Impossible</md-radio-button>
+    </md-radio-group>
+    <md-button ng-click="TicTacCtrl.init()">New Game</md-button>
+  </div>
+
 
   <div ng-if="loaded"  layout="column" layout-align="center center" layout-wrap>
-    <h3>Your session id is: {{game.id}}</h3>
-    <h3>{{message}}</h3>
+
+    <h3 ng-hide="gameStatus().over">{{message}}</h3>
+    <h2 ng-show="gameStatus().over">{{gameOverMessage()}}</h2>
+    <h4 ng-show="gameOverAlert">{{gameOverAlert}}</h4>
     <hr>
       <table class="game-board" border="1">
   			<tr>
-  				<td game-slot index="1"></td>
-  				<td game-slot index="2"></td>
-  				<td game-slot index="3"></td>
+  				<td game-slot class="game-slot" index="1"></td>
+  				<td game-slot class="game-slot" index="2"></td>
+  				<td game-slot class="game-slot" index="3"></td>
   			</tr>
   			<tr>
-  				<td game-slot index="4"></td>
-  				<td game-slot index="5"></td>
-  				<td game-slot index="6"></td>
+  				<td game-slot class="game-slot" index="4"></td>
+  				<td game-slot class="game-slot" index="5"></td>
+  				<td game-slot class="game-slot" index="6"></td>
   			</tr>
   			<tr>
-  				<td game-slot index="7"></td>
-  				<td game-slot index="8"></td>
-  				<td game-slot index="9"></td>
+  				<td game-slot class="game-slot" index="7"></td>
+  				<td game-slot class="game-slot" index="8"></td>
+  				<td game-slot class="game-slot" index="9"></td>
   			</tr>
   		</table>
-      <button ng-click="TicTacCtrl.getAiMove()">Get AI Move</button>
       <br />
 
   </div>
-  {{game}}
 </div>

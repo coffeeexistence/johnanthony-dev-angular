@@ -100,7 +100,8 @@ function PortfolioController($sce){
       ],
       links: [
         {title: 'Gist', url: 'https://gist.github.com/coffeeexistence/02130b87bfd085711cca9f124aba89e2'}
-      ]
+      ],
+			element: $sce.trustAsHtml('<tic-tac></tic-tac>')
     }
   ];
 
