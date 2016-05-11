@@ -16,10 +16,7 @@ function gameSlot() {
 			};
 
       ctrl.slot = function(){
-        var slot = $scope.$parent.game.board[$scope.index-1];
-        if (slot === " ") {slot = "empty"}
-        //debugger;
-        return slot;
+        return $scope.$parent.game.board[$scope.index-1];
       };
 
       $scope.select = function() {
@@ -29,7 +26,7 @@ function gameSlot() {
   	}],
 		controllerAs: 'slotCtrl',
 		template: [
-			'<div ng-if="show" ng-click="select()">{{slotCtrl.slot()}} - {{index}}</div>'
+			'<div ng-if="show" ng-click="select()" class="game-slot">{{slotCtrl.slot()}}</div>'
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch('index', function (index) {

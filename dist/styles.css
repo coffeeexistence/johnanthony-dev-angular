@@ -157,11 +157,11 @@ h2 {
 }
 .game-board {
   border-style: none;
-  
+
 }
 
 .game-slot {
-  width: 33%;
-  display: inline;
+
+  padding: 50px;
   background: #fff;
 }
