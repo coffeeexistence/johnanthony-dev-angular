@@ -165,3 +165,9 @@ h2 {
   padding: 50px;
   background: #fff;
 }
+
+.game-container {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}

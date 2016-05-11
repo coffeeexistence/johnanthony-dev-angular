@@ -5,6 +5,27 @@ function TicTacController($sce, $scope, TicTacApi){
 
 	$scope.difficulty = 3;
 
+	$scope.currentPlayer = function() {
+		var turnCount = 0;
+		$scope.game.board.forEach(function(slot){
+			if (slot !== ' ') {turnCount++}
+		});
+		var turn = turnCount % 2;
+
+		if (turn == 0) { return ctrl.players[ctrl.players.order[0]] }
+		else { return ctrl.players[ctrl.players.order[1]] }
+	};
+
+	ctrl.players = {
+		order: ['ai', 'player'],
+		ai: {
+			name: 'HAL'
+		},
+		player: {
+			name: 'Player'
+		}
+	};
+
 	ctrl.init = function(){
 		TicTacApi.create({
 			game_session: {
@@ -24,12 +45,17 @@ function TicTacController($sce, $scope, TicTacApi){
 		return game;
 	};
 
-	ctrl.updateState = function(event, position) {
+	ctrl.playerMove = function(event, position) {
+
+		ctrl.updateState(position)
+	};
+
+	ctrl.updateState = function(position) {
 		$scope.game.board[position-1] = $scope.game.p1_token;
 		$scope.game.board_state = $scope.game.board.join('');
 		console.log('updating state');
 		console.log($scope.game.board_state);
-
+		console.log(position)
 		var updateParams = {
 			game_session: {
 				board_state: $scope.game.board_state
@@ -43,7 +69,9 @@ function TicTacController($sce, $scope, TicTacApi){
 		TicTacApi.aiMove($scope.game.id).then(ctrl.loadGame);
 	};
 
-	$scope.$on('selectPosition', ctrl.updateState);
+
+
+	$scope.$on('selectPosition', ctrl.playerMove );
 }
 
 angular

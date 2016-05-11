@@ -1,30 +1,33 @@
-I AM TIC TAC
+<div class="game-container">
 
-Difficulty:<input type="text" ng-model="difficulty" /> <br />
-<button ng-click="TicTacCtrl.init()">Start Game</button>
+  <h2>I AM TIC TAC</h2>
+  Difficulty:<input type="text" ng-model="difficulty" /> <br />
+  <button ng-click="TicTacCtrl.init()">Start Game</button>
 
-<div ng-if="loaded"  layout="column" layout-wrap>
-  <h3>Your session id is: {{game.id}}</h3>
+  <div ng-if="loaded"  layout="column" layout-align="center center" layout-wrap>
+    <h3>Your session id is: {{game.id}}</h3>
+    <h3>Current Player: {{currentPlayer().name}}</h3>
+    <hr>
+      <table class="game-board" border="1">
+  			<tr>
+  				<td game-slot index="1"></td>
+  				<td game-slot index="2"></td>
+  				<td game-slot index="3"></td>
+  			</tr>
+  			<tr>
+  				<td game-slot index="4"></td>
+  				<td game-slot index="5"></td>
+  				<td game-slot index="6"></td>
+  			</tr>
+  			<tr>
+  				<td game-slot index="7"></td>
+  				<td game-slot index="8"></td>
+  				<td game-slot index="9"></td>
+  			</tr>
+  		</table>
+      <button ng-click="TicTacCtrl.getAiMove()">Get AI Move</button>
+      <br />
+
+  </div>
   {{game}}
-  <hr />
-    <table class="game-board" border="1">
-			<tr>
-				<td game-slot index="1"></td>
-				<td game-slot index="2"></td>
-				<td game-slot index="3"></td>
-			</tr>
-			<tr>
-				<td game-slot index="4"></td>
-				<td game-slot index="5"></td>
-				<td game-slot index="6"></td>
-			</tr>
-			<tr>
-				<td game-slot index="7"></td>
-				<td game-slot index="8"></td>
-				<td game-slot index="9"></td>
-			</tr>
-		</table>
-    <button ng-click="TicTacCtrl.getAiMove()">Get AI Move</button>
-    <br />
-
 </div>
