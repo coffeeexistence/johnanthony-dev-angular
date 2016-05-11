@@ -5,7 +5,7 @@ function TicTacController($sce, $scope, TicTacApi){
 
 	$scope.difficulty = 3;
 
-	$scope.currentPlayer = function() {
+	ctrl.currentPlayer = function() {
 		var turnCount = 0;
 		$scope.game.board.forEach(function(slot){
 			if (slot !== ' ') {turnCount++}
@@ -16,15 +16,28 @@ function TicTacController($sce, $scope, TicTacApi){
 		else { return ctrl.players[ctrl.players.order[1]] }
 	};
 
+	ctrl.updateTurn = function() {
+		ctrl.currentPlayer().move();
+	};
+
 	ctrl.players = {
 		order: ['ai', 'player'],
 		ai: {
-			name: 'HAL'
+			name: 'HAL',
+			move: function() {
+				$scope.message = "AI is computing optimal move";
+				ctrl.getAiMove();
+			}
 		},
 		player: {
-			name: 'Player'
+			name: 'Player',
+			move: function() {
+				$scope.message = "Your turn";
+			}
 		}
 	};
+
+	$scope.message = "Hello World";
 
 	ctrl.init = function(){
 		TicTacApi.create({
@@ -37,6 +50,7 @@ function TicTacController($sce, $scope, TicTacApi){
 	ctrl.loadGame = function(response) {
 		$scope.game = ctrl.responseToGame(response);
 		$scope.loaded = true;
+		ctrl.updateTurn();
 	};
 
 	ctrl.responseToGame = function(response) {
@@ -68,8 +82,6 @@ function TicTacController($sce, $scope, TicTacApi){
 	ctrl.getAiMove = function() {
 		TicTacApi.aiMove($scope.game.id).then(ctrl.loadGame);
 	};
-
-
 
 	$scope.$on('selectPosition', ctrl.playerMove );
 }
