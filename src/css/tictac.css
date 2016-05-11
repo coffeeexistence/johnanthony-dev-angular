@@ -1,5 +1,6 @@
 .game-board {
-  width: 50%;
+  border-style: none;
+  
 }
 
 .game-slot {

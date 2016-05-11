@@ -1,9 +1,27 @@
 I AM TIC TAC
 
-<div ng-if="loaded" class="game-board" layout="column" layout-wrap>
+<div ng-if="loaded"  layout="column" layout-wrap>
+  <h3>Your session id is: {{game.id}}</h3>
   {{game}}
   <hr />
-  <div ng-repeat="slot in game.board track by $index" class="game-slot">
-    {{slot}}
-  </div>
+    <table class="game-board" border="1" cellpadding="40">
+			<tr>
+				<td game-slot index="0"></td>
+				<td game-slot index="1"></td>
+				<td game-slot index="2"></td>
+			</tr>
+			<tr>
+				<td game-slot index="3"></td>
+				<td game-slot index="4"></td>
+				<td game-slot index="5"></td>
+			</tr>
+			<tr>
+				<td game-slot index="6"></td>
+				<td game-slot index="7"></td>
+				<td game-slot index="8"></td>
+			</tr>
+		</table>
+
+    <br />
+
 </div>
