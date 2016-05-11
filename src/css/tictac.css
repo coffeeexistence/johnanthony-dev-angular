@@ -15,13 +15,13 @@
 
 @media (max-width: 1800px) {
   .game-slot {
-    padding: 40px;
+    padding: 35px;
   }
 }
 
 @media (max-width: 1510px) {
   .game-slot {
-    padding: 35px;
+    padding: 32px;
   }
 }
 

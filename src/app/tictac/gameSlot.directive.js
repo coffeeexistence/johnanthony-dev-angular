@@ -20,7 +20,7 @@ function gameSlot() {
       };
 
       $scope.select = function() {
-        $scope.$emit('selectPosition', $scope.index);
+				if(ctrl.slot()===' ') { $scope.$emit('selectPosition', $scope.index) }
       };
 
   	}],
