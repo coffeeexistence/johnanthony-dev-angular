@@ -5,11 +5,14 @@
   class="noborder project-container clearfix">
   <div class="slight-indent">
     <div layout="row" layout-align="space-between center">
-      <h3>{{project.name}}</h3>
+      <div layout="column">
+        <h3 class="header">{{project.name}}</h3><span class="text-grey subheader">{{project.description}}</span>
+      </div>
 
-      <div ng-click="projectCtrl.toggleExpansion();" ng-show="hover" class="hover-text">
-        <md-button ng-show="!projectCtrl.expanded">Click to expand</md-button>
-        <md-button ng-show="projectCtrl.expanded">Click to collapse</md-button>
+
+      <div ng-click="projectCtrl.toggleExpansion();" class="hover-text text-grey">
+        <md-button class="md-raised text-grey" ng-if="!projectCtrl.expanded">more</md-button>
+        <md-button class="md-raised text-grey" ng-if="projectCtrl.expanded">less</md-button>
       </div>
 
     </div>
@@ -19,7 +22,7 @@
     </div>
     <md-divider ng-if="projectCtrl.expanded"></md-divider>
     <div ng-show="projectCtrl.expanded" class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center" ng-click="">
-      <a ng-repeat="link in project.links" ng-href="{{link.url}}">{{link.title}}</a>
+      <a ng-repeat="link in project.links" ng-href="{{link.url}}" target="_blank" class="text-grey">{{link.title}}</a>
     </div>
     <md-divider ng-if="project.element && projectCtrl.expanded"></md-divider>
     <div ng-if="project.element && projectCtrl.expanded" bind-html-compile="project.element">{{project.element}}</div>

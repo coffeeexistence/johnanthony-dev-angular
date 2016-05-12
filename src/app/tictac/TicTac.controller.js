@@ -45,12 +45,14 @@ function TicTacController($sce, $scope, TicTacApi){
 				ai_difficulty: $scope.difficulty
 			}
 		}).then(ctrl.loadGame);
+		$scope.loading = true;
 	};
 
 	ctrl.loadGame = function(response) {
 		$scope.game = ctrl.responseToGame(response);
 		$scope.loaded = true;
 		ctrl.updateTurn();
+		$scope.loading = false;
 	};
 
 	$scope.gameStatus = function() {

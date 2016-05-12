@@ -38,12 +38,15 @@ function PortfolioController($sce){
             {title: 'Directives'},
             {title: 'Services'},
             {title: 'Routing'},
-            {title: 'Asynchronous callbacks'},
+            {title: 'Asynchronous Callbacks'},
             {title: '$scope'},
-            {title: '$http'}
+            {title: '$http'},
+						{title: 'Material Design'}
           ]
         },
-        {title: 'jQuery'}
+        {title: 'jQuery'},
+				{title: 'Bower'},
+				{title: 'Grunt'}
       ]
     },
     {
@@ -56,16 +59,42 @@ function PortfolioController($sce){
         {title: 'SASS'}
       ]
     },
+		{
+      title: 'Unix/Linux',
+      subSkills: [
+        {title: 'Package Management'},
+        {title: 'BASH$'},
+        {title: 'Filesystem Navigation'},
+        {title: 'Scripting/Automation'},
+        {title: 'File Privileges'}
+      ]
+    },
 
 
   ];
 
 
   ctrl.technicalExperience = [
+		{
+      name: 'Tic Tac Toe AI',
+      description: 'Always ends in a Win or Draw, if maximum difficulty is selected.',
+      points: [
+				'Made with Ruby, Rails, and AngularJS',
+        'AI recursively searches through each possible move and sub-moves, calculates wins, losses, or draws',
+				'Interaction between server and user provided by AngularJS'
+      ],
+      links: [
+        {title: 'AI Gist', url: 'https://gist.github.com/coffeeexistence/02130b87bfd085711cca9f124aba89e2'},
+				{title: 'Front End', url: 'https://github.com/coffeeexistence/johnanthony-dev-angular/tree/master/src/app/tictac'},
+				{title: 'Back End', url: 'https://github.com/coffeeexistence/ttt-backend'}
+      ],
+			element: $sce.trustAsHtml('<tic-tac></tic-tac>')
+    },
     {
       name: 'MixCritic',
       description: 'Website where artists and producers can post their mixes for constructive feedback.',
       points: [
+				'Made with Ruby, Rails, and AngularJS',
         'Created RESTful Rails API for Angular Frontend',
         'Used ActiveRecord to store model data in postgres database',
         'Constructed versatile and reusable AngularJS directives & controllers',
@@ -83,6 +112,7 @@ function PortfolioController($sce){
       name: 'Movie Scraper',
       description: 'Collects local movie theater showtimes and fetches ratings.',
       points: [
+				'Made with Ruby',
         'Scraped from Fandango and Rottentomatoes using Nokogiri ',
         'Accessed movie theater distance information via Google Maps API',
         'Collected and sorted movies by rating'
@@ -91,25 +121,15 @@ function PortfolioController($sce){
         {title: 'Video Walkthrough', url: 'https://www.youtube.com/watch?v=U_UHuH6WQjM'},
         {title: 'Github', url: 'https://github.com/coffeeexistence/LocalMovies-project'}
       ]
-    },
-    {
-      name: 'Tic Tac Toe AI',
-      description: 'Will always end in a Win or “Cat’s Game”, if maximum difficulty is selected.',
-      points: [
-        'Recursively searches through each possible move and sub-moves, calculates wins, losses, or draws'
-      ],
-      links: [
-        {title: 'Gist', url: 'https://gist.github.com/coffeeexistence/02130b87bfd085711cca9f124aba89e2'}
-      ],
-			element: $sce.trustAsHtml('<tic-tac></tic-tac>')
     }
+
   ];
 
   ctrl.history = [
     {
       name: 'Autocross Performance & Muffler',
       location: 'Lake Elsinore, CA',
-      title: 'Tech Guy',
+      title: 'Systems Developer',
       dateString: 'March 2015 - April 2016 + Ongoing Remote Technical Assistance',
       points: [
         'Devised database schemas for storing customer, invoice, and product information',
@@ -128,8 +148,10 @@ function PortfolioController($sce){
       points: [
         'Installed hitches, vehicle wiring systems, and brake controllers',
         'Provided excellent & helpful customer service',
-        'Sold sales items',
-        'Received, inspected, and dispatched vehicles '
+				'Managed customer reservations',
+				'Performed vehicle walkthroughs with customer before dispatch',
+        'Answered customer questions concerning sales items & rentals',
+        'Received, inspected, and dispatched vehicles'
       ]
     },
     {
@@ -138,8 +160,11 @@ function PortfolioController($sce){
       title: 'Meat Department Clerk',
       dateString: 'June  2015 - December 2015',
       points: [
+				'Served up to 350 customers per day',
         'Handled, cut, and prepared meat and seafood',
-        'Cleaned, maintained displays, and answered calls'
+        'Maintained glass displays and scales',
+				'Cleaned & sanitized heavy duty meat cutting/grinding equipment',
+				'Designed creative and eye-grabbing appetizers.'
       ]
     }
   ];

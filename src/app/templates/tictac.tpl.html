@@ -1,7 +1,7 @@
 <div layout="column" layout-align="center center" class="game-container">
 
   <div layout-align="center center" layout="column">
-    <h2>I AM TIC TAC</h2>
+    <h2>Tic Tac Toe with AI</h2>
 
     <md-radio-group ng-model="difficulty">
         <p>Difficulty:</p>
@@ -9,6 +9,10 @@
         <md-radio-button value="4">Literally Impossible</md-radio-button>
     </md-radio-group>
     <md-button ng-click="TicTacCtrl.init()">New Game</md-button>
+
+    <p ng-show="loading">Waking up the sleepy server</p>
+    <md-progress-linear ng-show="loading" md-mode="indeterminate"></md-progress-linear>
+
   </div>
 
 

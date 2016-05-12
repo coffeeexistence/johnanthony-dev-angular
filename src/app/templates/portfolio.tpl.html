@@ -10,7 +10,7 @@
       <div  layout="row" layout-wrap layout-align="space-around center">
         <div class="contact-item">951-553-4461</div>
         <div class="contact-item">johnanthony.dev@gmail.com</div>
-        <div class="contact-item">github: coffeeexistence</div>
+        <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
         <div class="contact-item">johnanthony-dev.com</div>
       </div>
   </div>
@@ -34,9 +34,15 @@
           <h2>Employment History</h2>
           <md-list class="indented">
             <div ng-repeat="job in ctrl.history">
-              <h3>{{job.name}}</h3>
+              <h3 class="header">{{job.name}}</h3>
+              <div class="subheader">
+                <span class="text-grey">{{job.title}}</span>
+                <span class="text-grey"> ({{job.dateString}})</span>
+              </div>
+
+
               <md-list-item ng-repeat="point in job.points">
-                <div class="md-list-item-text">{{point}}</div>
+                <div class="list-item">{{point}}</div>
               </md-list-item>
               <md-divider ng-if="!$last"></md-divider>
             </div>
