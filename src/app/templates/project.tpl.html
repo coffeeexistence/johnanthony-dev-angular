@@ -2,15 +2,19 @@
   ng-mouseover="hover=true"
   ng-mouseleave="hover=false"
   ng-class="{'hovered': hover, 'md-whiteframe-z2 expanded': projectCtrl.expanded}"
-  class="noborder project-container clearfix">
+  class="noborder project-container group">
   <div class="slight-indent">
+
     <div layout="row" layout-align="space-between center">
-      <div layout="column">
-        <h3 class="header">{{project.name}}</h3><span class="text-grey subheader">{{project.description}}</span>
+
+      <div flex="75">
+        <h3 class="header">{{project.name}}</h3>
+        <div class="text-grey subheader">{{project.description}}</div>
       </div>
 
 
-      <div ng-click="projectCtrl.toggleExpansion();" class="hover-text text-grey">
+
+      <div ng-click="projectCtrl.toggleExpansion();" class="text-grey show-more">
         <md-button class="md-raised text-grey" ng-if="!projectCtrl.expanded">more</md-button>
         <md-button class="md-raised text-grey" ng-if="projectCtrl.expanded">less</md-button>
       </div>
@@ -24,6 +28,7 @@
     <div ng-show="projectCtrl.expanded" class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center" ng-click="">
       <a ng-repeat="link in project.links" ng-href="{{link.url}}" target="_blank" class="text-grey">{{link.title}}</a>
     </div>
+
     <md-divider ng-if="project.element && projectCtrl.expanded"></md-divider>
     <div ng-if="project.element && projectCtrl.expanded" bind-html-compile="project.element">{{project.element}}</div>
   </div>

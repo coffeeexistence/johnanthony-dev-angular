@@ -1,5 +1,5 @@
 <div layout="row" layout-align="center center">
-  <div class="portfolio-header md-whiteframe-z2 clearfix" layout-padding flex-gt-sm="70" flex="100">
+  <div class="portfolio-header md-whiteframe-z2 clearfix" layout-padding flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
 
       <div>
         <img id="me" src="img/me.png" />
@@ -16,11 +16,11 @@
   </div>
 </div>
 
-<div layout="row"  layout-align="center center">
+<div layout="row" class="portfolio-section" flex="99"  layout-align="center center">
 
-  <div layout="row" layout-wrap layout-align="start start" flex-gt-sm="70" flex="99">
+  <div class="portfolio-section" layout="row" layout-wrap layout-align="start start" flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
 
-      <div id="left" flex-gt-xs="60" flex-xs="100" layout="column" layout-wrap>
+      <div id="left" class="portfolio-section" flex-gt-xs="65" flex-xs="100" layout="column" layout-wrap>
         <div id="experience">
           <h2>Technical Experience</h2>
           <div class="indented">
@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <div id="right" class="skill-set" flex-gt-xs="30" flex-xs="100" layout="column" layout-align="start start">
+    <div id="right" class="skill-set" flex-gt-xs="30" flex-xs="99" layout="column" layout-align="start start">
       <h2>Skill & Competencies</h2>
       <div class="skill" ng-repeat="tier1 in ctrl.skills">
         <h3>{{tier1.title}}</h3>
