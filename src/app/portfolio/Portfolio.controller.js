@@ -41,9 +41,10 @@ function PortfolioController($sce){
             {title: 'Asynchronous Callbacks'},
             {title: '$scope'},
             {title: '$http'},
-						{title: 'Material Design'}
+						{title: 'Angular Material'}
           ]
         },
+				{title: 'JSON'},
         {title: 'jQuery'},
 				{title: 'Bower'},
 				{title: 'Grunt'}
@@ -52,23 +53,32 @@ function PortfolioController($sce){
     {
       title: 'HTML & CSS',
       subSkills: [
+				{title: 'Mobile Design'},
+				{title: 'Responsive Layouts'},
         {title: 'Formatting'},
         {title: 'Positioning'},
         {title: 'Selectors'},
         {title: 'Media Queries'},
-        {title: 'SASS'}
+        {title: 'SASS'},
+				{
+					title: 'Popular CSS Libraries',
+					subSkills: [
+						{title: 'Materialize'},
+						{title: 'Bootstrap'}
+					]
+				}
       ]
     },
 		{
       title: 'Unix/Linux',
       subSkills: [
         {title: 'Package Management'},
-        {title: 'BASH$'},
+        {title: 'Bash'},
         {title: 'Filesystem Navigation'},
         {title: 'Scripting/Automation'},
         {title: 'File Privileges'}
       ]
-    },
+    }
 
 
   ];
@@ -105,7 +115,7 @@ function PortfolioController($sce){
       links: [
         {title: 'Video Walkthrough', url: 'https://www.youtube.com/watch?v=SlNoUv6_LnQ'},
         {title: 'Github', url: 'https://github.com/coffeeexistence/mixcritic-angular'},
-        {title: 'Live Demo', url: 'http://mix-critic.herokuapp.com/'}
+        {title: 'Live Demo', url: 'http://mix-critic.com/'}
       ]
     },
     {
@@ -146,12 +156,10 @@ function PortfolioController($sce){
       title: 'Customer Service Representative',
       dateString: 'October 2015 - Present',
       points: [
-        'Installed hitches, vehicle wiring systems, and brake controllers',
-        'Provided excellent & helpful customer service',
-				'Managed customer reservations',
-				'Performed vehicle walkthroughs with customer before dispatch',
-        'Answered customer questions concerning sales items & rentals',
-        'Received, inspected, and dispatched vehicles'
+				'Set up customer rentals',
+				'Provided helpful customer service & managed customer reservations',
+				'Installed hitches, vehicle wiring systems, and brake controllers',
+				'Received, inspected, and dispatched vehicles'
       ]
     },
     {

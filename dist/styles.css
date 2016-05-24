@@ -25,6 +25,7 @@ body {
   margin-left: 0.5em;
 }
 
+
 a {
   text-decoration:none;
 }
@@ -201,6 +202,8 @@ h5 {
   max-width: 100%;
 }
 
+
+
 @media (max-width: 1400px) {
   .portfolio-header {
     font-size: 0.9em;
@@ -231,7 +234,14 @@ h5 {
     margin: 0px;
     border-radius: 0px;
   }
+  .skill {
+    width: 30%;
+  }
 
+  .project-container {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 
 }
 

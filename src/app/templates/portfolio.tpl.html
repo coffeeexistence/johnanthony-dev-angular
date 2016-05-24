@@ -11,14 +11,14 @@
         <div class="contact-item">951-553-4461</div>
         <div class="contact-item">johnanthony.dev@gmail.com</div>
         <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
-        <div class="contact-item">johnanthony-dev.com</div>
+        <a class="contact-item" href="http://johnanthony-dev.com/blog/">Blog</a>
       </div>
   </div>
 </div>
 
 <div layout="row" class="portfolio-section" flex="99"  layout-align="center center">
 
-  <div class="portfolio-section" layout="row" layout-wrap layout-align="start start" flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+  <div class="portfolio-section" layout="row" layout-wrap layout-align="space-between start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
 
       <div id="left" class="portfolio-section" flex-gt-xs="65" flex-xs="100" layout="column" layout-wrap>
         <div id="experience">
@@ -52,15 +52,19 @@
 
     <div id="right" class="skill-set" flex-gt-xs="30" flex-xs="99" layout="column" layout-align="start start">
       <h2>Skill & Competencies</h2>
-      <div class="skill" ng-repeat="tier1 in ctrl.skills">
-        <h3>{{tier1.title}}</h3>
-        <div class="sub-skill" ng-repeat="tier2 in tier1.subSkills">
-          <h4>{{tier2.title}}</h4>
-          <div class="sub-skill" ng-repeat="tier3 in tier2.subSkills">
-            <h5>{{tier3.title}}</h5>
+
+      <div layout="column" layout-align="start space-between" layout="column" layout-xs="row" layout-wrap>
+        <div class="skill" ng-repeat="tier1 in ctrl.skills">
+          <h3>{{tier1.title}}</h3>
+          <div class="sub-skill" ng-repeat="tier2 in tier1.subSkills">
+            <h4>{{tier2.title}}</h4>
+            <div class="sub-skill" ng-repeat="tier3 in tier2.subSkills">
+              <h5>{{tier3.title}}</h5>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
+    </div>
+  </div>
 </div>
