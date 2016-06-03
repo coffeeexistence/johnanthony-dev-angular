@@ -86,21 +86,35 @@ function PortfolioController($sce){
 
   ctrl.technicalExperience = [
 		{
-      name: 'Tic Tac Toe AI',
-      description: 'Always ends in a Win or Draw, if maximum difficulty is selected.',
+      name: 'Surak',
+      description: 'Surak a quick and easy RubyGem for creating production-ready angular apps with Bower and Grunt.',
       points: [
-				'Made with Ruby, Rails, and AngularJS',
-        'AI recursively searches through each possible move and sub-moves, calculates wins, losses, or draws',
-				'Interaction between server and user provided by AngularJS'
+				"Creates ready-to-go projects preloaded with angular and angular-material with 'surak new project-name'",
+				"Makes working with Bower & Grunt easier",
+				"Compiles assets upon file modification & runs HTTP server in parallel"
       ],
       links: [
-        {title: 'AI Gist', url: 'https://gist.github.com/coffeeexistence/02130b87bfd085711cca9f124aba89e2'},
-				{title: 'Front End', url: 'https://github.com/coffeeexistence/johnanthony-dev-angular/tree/master/src/app/tictac'},
-				{title: 'Back End', url: 'https://github.com/coffeeexistence/ttt-backend'}
+				{title: 'Documentation', url: 'http://johnanthony-dev.com/surak/'},
+				{title: 'Github', url: 'https://github.com/coffeeexistence/surak'},
+        {title: 'RubyGem', url: 'https://rubygems.org/gems/surak'}
       ],
-			element: $sce.trustAsHtml('<tic-tac></tic-tac>')
+			icon: 'img/gem-icon.png'
     },
-    {
+
+		{
+      name: 'WhoIsHiring',
+      description: "Pure AngularJS app for searching through whoishiring's monthly submissions on HackerNews.",
+      points: [
+				'Coming soon'
+      ],
+      links: [
+				{title: 'Site', url: 'http://johnanthony-dev.com/job-search/'},
+				{title: 'Github', url: 'https://github.com/coffeeexistence/who-is-hiring'}
+      ],
+			icon: 'img/jobsearch-icon.png'
+    },
+
+		{
       name: 'MixCritic',
       description: 'Website where artists and producers can post their mixes for constructive feedback.',
       points: [
@@ -116,8 +130,26 @@ function PortfolioController($sce){
         {title: 'Video Walkthrough', url: 'https://www.youtube.com/watch?v=SlNoUv6_LnQ'},
         {title: 'Github', url: 'https://github.com/coffeeexistence/mixcritic-angular'},
         {title: 'Live Demo', url: 'http://mix-critic.com/'}
-      ]
+      ],
+			icon: 'img/mixcritic-icon.png'
     },
+		{
+      name: 'Tic Tac Toe AI',
+      description: 'Always ends in a Win or Draw, if maximum difficulty is selected.',
+      points: [
+				'Made with Ruby, Rails, and AngularJS',
+        'AI recursively searches through each possible move and sub-moves, calculates wins, losses, or draws',
+				'Interaction between server and user provided by AngularJS'
+      ],
+      links: [
+        {title: 'AI Gist', url: 'https://gist.github.com/coffeeexistence/02130b87bfd085711cca9f124aba89e2'},
+				{title: 'Front End', url: 'https://github.com/coffeeexistence/johnanthony-dev-angular/tree/master/src/app/tictac'},
+				{title: 'Back End', url: 'https://github.com/coffeeexistence/ttt-backend'}
+      ],
+			element: $sce.trustAsHtml('<tic-tac></tic-tac>'),
+			icon: 'img/tictac-icon.png'
+    },
+
     {
       name: 'Movie Scraper',
       description: 'Collects local movie theater showtimes and fetches ratings.',
@@ -130,7 +162,8 @@ function PortfolioController($sce){
       links: [
         {title: 'Video Walkthrough', url: 'https://www.youtube.com/watch?v=U_UHuH6WQjM'},
         {title: 'Github', url: 'https://github.com/coffeeexistence/LocalMovies-project'}
-      ]
+      ],
+			icon: 'img/ticket-icon.png'
     }
 
   ];
@@ -142,11 +175,10 @@ function PortfolioController($sce){
       title: 'Systems Developer',
       dateString: 'March 2015 - April 2016 + Ongoing Remote Technical Assistance',
       points: [
-        'Devised database schemas for storing customer, invoice, and product information',
         'Built invoice generator which has been used for over 500 transactions',
-        'Calculated current and projected financial stats for budgeting and business planning',
-        'Created advertising material, website, and social media presence',
-        'Assisted customers purchasing products and services',
+        'Devised database schemas for storing customer, invoice, & product information',
+        'Calculated current & projected financial stats for budgeting & business planning',
+        'Created advertising material, website, & social media presence',
         'Filed 2015 Taxes (State & Federal) in early 2016'
       ]
     },
@@ -156,10 +188,9 @@ function PortfolioController($sce){
       title: 'Customer Service Representative',
       dateString: 'October 2015 - Present',
       points: [
-				'Set up customer rentals',
+				'Received, inspected, & dispatched up to 20 rental vehicles per hour',
 				'Provided helpful customer service & managed customer reservations',
-				'Installed hitches, vehicle wiring systems, and brake controllers',
-				'Received, inspected, and dispatched vehicles'
+				'Installed hitches, vehicle wiring systems, and brake controllers'
       ]
     },
     {

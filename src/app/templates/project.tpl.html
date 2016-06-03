@@ -1,35 +1,46 @@
 <div
-  ng-mouseover="hover=true"
-  ng-mouseleave="hover=false"
-  ng-class="{'hovered': hover, 'md-whiteframe-z2 expanded': projectCtrl.expanded}"
+  ng-class="{'md-whiteframe-z2 expanded': projectCtrl.expanded}"
   class="noborder project-container group">
-  <div class="slight-indent">
 
-    <div layout="row" layout-align="space-between center">
+
+  <div class="slight-indent " layout="row" layout-align="start center">
+
+    <div flex="20">
+      <img class="project-icon" ng-src="{{project.icon}}" />
+    </div>
+
+    <div layout="row" layout-align="space-between start">
 
       <div flex="75">
-        <h3 class="header">{{project.name}}</h3>
+        <h3 class="header thin">{{project.name}}</h3>
         <div class="text-grey subheader">{{project.description}}</div>
       </div>
 
-
-
-      <div ng-click="projectCtrl.toggleExpansion();" class="text-grey show-more">
-        <md-button class="md-raised text-grey" ng-if="!projectCtrl.expanded">more</md-button>
-        <md-button class="md-raised text-grey" ng-if="projectCtrl.expanded">less</md-button>
-      </div>
-
     </div>
 
-    <div class="list-item" ng-repeat="point in project.points">
+    <div ng-click="projectCtrl.toggleExpansion();" class="text-grey show-more" style="margin-left: auto;">
+      <md-button class="md-raised text-grey" ng-if="!projectCtrl.expanded">more</md-button>
+      <md-button class="md-raised text-grey" ng-if="projectCtrl.expanded">less</md-button>
+    </div>
+
+  </div>
+
+  <div layout="column" layout-align="center space-around">
+
+    <div class="list-item fill" ng-show="projectCtrl.expanded" ng-repeat="point in project.points">
       <div class="">{{point}}</div>
     </div>
+
     <md-divider ng-if="projectCtrl.expanded"></md-divider>
+
     <div ng-show="projectCtrl.expanded" class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center" ng-click="">
       <a ng-repeat="link in project.links" ng-href="{{link.url}}" target="_blank" class="text-grey">{{link.title}}</a>
     </div>
 
     <md-divider ng-if="project.element && projectCtrl.expanded"></md-divider>
+
     <div ng-if="project.element && projectCtrl.expanded" bind-html-compile="project.element">{{project.element}}</div>
+
   </div>
+
 </div>
