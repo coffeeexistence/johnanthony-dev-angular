@@ -5,7 +5,7 @@
         <img id="me" src="img/me.png" />
       </div>
 
-      <div class="name centered-margins">John Anthony Rivera</div>
+      <div class="name centered-margins">John <span class="secondary-color-lighten-1">Anthony</span> Rivera</div>
 
       <div  layout="row" layout-wrap layout-align="space-around center">
         <div class="contact-item">951-553-4461</div>
@@ -16,13 +16,6 @@
   </div>
 </div>
 
-<div class="text-grey" layout="row" class="portfolio-section" flex="99"  layout-align="center center">
-  <div flex="50" layout layout-align="center center">
-    When I was 13, my favorite movie was Pirates Of Silicon Valley, extrapolate from that what you may.
-  </div>
-</div>
-
-
 
 <div layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
 
@@ -30,7 +23,7 @@
 
   <div class="portfolio-section" layout="row" layout-wrap layout-align="space-around start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
 
-      <div id="left" class="portfolio-section" flex-gt-lg="65" flex-lg="65" layout="column" layout-wrap>
+      <div id="left" class="portfolio-section primary-color" flex-gt-md="75" flex="99" layout="column" layout-wrap>
         <div id="experience">
           <h2>Technical Experience</h2>
           <div class="indented">
@@ -41,10 +34,10 @@
           </div>
         </div>
         <div id="history">
-          <h2>Employment History</h2>
-          <md-list class="indented">
+          <h2 class="primary-color">Employment History</h2>
+          <md-list class="indented secondary-grey-lighten-3">
             <div ng-repeat="job in ctrl.history">
-              <h3 class="header">{{job.name}}</h3>
+              <h3 class="header ">{{job.name}}</h3>
               <div class="subheader">
                 <span class="text-grey">{{job.title}}</span>
                 <span class="text-grey"> ({{job.dateString}})</span>
@@ -60,10 +53,9 @@
         </div>
     </div>
 
-    <div id="right" class="skill-set" flex-gt-lg="30" flex-lg="99" layout="column" layout-align="start start">
-      <h2>Skill & Competencies</h2>
-
-      <div layout="column" layout-align="start space-between" layout="column" layout-xs="row" layout-wrap>
+    <div id="right" class="skill-set secondary-color" flex-gt-md="25" flex="99" layout="column" layout-fill layout-align="start start">
+      <h2 >Skill Set</h2>
+      <div layout="row" layout-align="space-between space-between" layout-align-gt-md="start space-between" layout="row" layout-fill  layout-wrap>
         <div class="skill" ng-repeat="tier1 in ctrl.skills">
           <h3>{{tier1.title}}</h3>
           <div class="sub-skill" ng-repeat="tier2 in tier1.subSkills">

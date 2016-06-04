@@ -3,32 +3,40 @@
   class="noborder project-container group">
 
 
-  <div class="slight-indent " layout="row" layout-align="start center">
+  <div class="slight-indent" layout="row" layout-align-xs="center center" layout-align="start center" layout-wrap>
 
-    <div flex="20">
+    <div flex-gt-xs="10" flex-xs="99">
       <img class="project-icon" ng-src="{{project.icon}}" />
     </div>
 
-    <div layout="row" layout-align="space-between start">
-
-      <div flex="75">
-        <h3 class="header thin">{{project.name}}</h3>
+    <div flex-xs="99" flex-gt-xs="70" layout="row" layout-align="space-between start">
+      <div>
+        <h3 class="project-title header thin">{{project.name}}</h3>
         <div class="text-grey subheader">{{project.description}}</div>
       </div>
-
     </div>
 
-    <div ng-click="projectCtrl.toggleExpansion();" class="text-grey show-more" style="margin-left: auto;">
-      <md-button class="md-raised text-grey" ng-if="!projectCtrl.expanded">more</md-button>
-      <md-button class="md-raised text-grey" ng-if="projectCtrl.expanded">less</md-button>
+    <div flex-xs="99" flex-gt-xs="20"
+      ng-click="projectCtrl.toggleExpansion();"
+      class="text-grey"
+      layout="column"
+      layout-fill
+      layout-align="end start"
+      style="height: 100%;"
+      >
+      <div class="show-more">
+        <md-button class="md-raised text-grey" ng-if="!projectCtrl.expanded">more</md-button>
+        <md-button class="md-raised text-grey" ng-if="projectCtrl.expanded">less</md-button>
+      </div>
+
     </div>
 
   </div>
 
   <div layout="column" layout-align="center space-around">
 
-    <div class="list-item fill" ng-show="projectCtrl.expanded" ng-repeat="point in project.points">
-      <div class="">{{point}}</div>
+    <div class="list-item fill " ng-show="projectCtrl.expanded" ng-repeat="point in project.points">
+      <div class="project-points secondary-grey-lighten-3">&bull;  {{point}}</div>
     </div>
 
     <md-divider ng-if="projectCtrl.expanded"></md-divider>

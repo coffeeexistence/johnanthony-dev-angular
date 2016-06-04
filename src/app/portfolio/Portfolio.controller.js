@@ -87,7 +87,7 @@ function PortfolioController($sce){
   ctrl.technicalExperience = [
 		{
       name: 'Surak',
-      description: 'Surak a quick and easy RubyGem for creating production-ready angular apps with Bower and Grunt.',
+      description: 'Surak a quick and easy RubyGem for creating, serving, and compiling production-ready angular apps with Bower and Grunt.',
       points: [
 				"Creates ready-to-go projects preloaded with angular and angular-material with 'surak new project-name'",
 				"Makes working with Bower & Grunt easier",
