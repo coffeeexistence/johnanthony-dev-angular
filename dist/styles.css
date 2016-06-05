@@ -285,7 +285,8 @@ h5 {
 
 
 .portfolio-header {
-  background-color: #26283C;
+  background-color: #252525;
+  background-image: url('img/bg.jpg');
   color: white;
   margin: 3em 0em 3em 0em;
   border-radius: 3px;
