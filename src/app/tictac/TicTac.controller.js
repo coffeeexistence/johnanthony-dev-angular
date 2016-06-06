@@ -17,7 +17,9 @@ function TicTacController($sce, $scope, TicTacApi){
 	};
 
 	ctrl.updateTurn = function() {
-		ctrl.currentPlayer().move();
+		if (!$scope.gameStatus().over) {
+			ctrl.currentPlayer().move();
+		}
 	};
 
 	ctrl.players = {
@@ -59,7 +61,7 @@ function TicTacController($sce, $scope, TicTacApi){
 		var status = {over: false};
 		if ($scope.game.info.winner) {
 			status.over = true;
-			if(status.winner === $scope.game.p1_token) { status.type = 'won' }
+			if($scope.game.info.winner === $scope.game.p1_token) { status.type = 'won' }
 			else { status.type = 'lost' }
 		} else if ($scope.game.info.draw == true) {
 			status.over = true;
@@ -74,8 +76,8 @@ function TicTacController($sce, $scope, TicTacApi){
 				return 'You Won!!';
 			case 'lost':
 				return 'You Lost :('
-				case 'draw':
-					return 'Draw'
+			case 'draw':
+				return 'Draw'
 		}
 	};
 
