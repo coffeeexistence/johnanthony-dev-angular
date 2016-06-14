@@ -3,8 +3,8 @@ var clientApp = './src/app/';
 var files = [
   clientApp + '**/*.module.js',
   '<%= ngtemplates.app.dest %>',
-  clientApp + '**/*.js'
-
+  clientApp + '**/*.js',
+  'src/third_party/**.js'
 ];
 
 module.exports = function(grunt) {
@@ -39,7 +39,8 @@ module.exports = function(grunt) {
           "vendor/angular-material/angular-material.min.js",
           "vendor/angular-ui-router/release/angular-ui-router.min.js",
           "vendor/angular-sanitize/angular-sanitize.min.js",
-          'vendor/angular-bind-html-compile/angular-bind-html-compile.min.js'
+          'vendor/angular-bind-html-compile/angular-bind-html-compile.min.js',
+          'vendor/jquery/dist/jquery.min.js'
         ],
         dest: 'build/vendor.min.js'
       },

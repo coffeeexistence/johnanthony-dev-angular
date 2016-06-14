@@ -85,6 +85,21 @@ function PortfolioController($sce){
 
 
   ctrl.technicalExperience = [
+    {
+      name: 'ng-resource-manager',
+      description: 'Module which reduces requests, loading-time, and backend overhead.',
+      points: [
+				"Caches requested resources for future use.",
+				"Collects individual requests into one large batch request.",
+				"Utilizing ResourceManager in MixCritic for user:show reduced requests on front page from 23 to 1, and reduced load times on live production server by a noticeable margin.",
+        "ResourceManger.create(resourceName, httpBatchRequest) factory returns a manager object specifically for the requested resource",
+        "Currently available through Bower"
+      ],
+      links: [
+				{title: 'GitHub', url: 'https://github.com/coffeeexistence/ng-resource-manager'},
+      ],
+			icon: 'img/ng-icon.png'
+    },
 		{
       name: 'Surak',
       description: 'Surak a quick and easy RubyGem for creating, serving, and compiling production-ready angular apps with Bower and Grunt.',
@@ -99,19 +114,6 @@ function PortfolioController($sce){
         {title: 'RubyGem', url: 'https://rubygems.org/gems/surak'}
       ],
 			icon: 'img/gem-icon.png'
-    },
-
-		{
-      name: 'WhoIsHiring',
-      description: "Pure AngularJS app for searching through whoishiring's monthly submissions on HackerNews.",
-      points: [
-				'Coming soon'
-      ],
-      links: [
-				{title: 'Site', url: 'http://johnanthony-dev.com/job-search/'},
-				{title: 'Github', url: 'https://github.com/coffeeexistence/who-is-hiring'}
-      ],
-			icon: 'img/jobsearch-icon.png'
     },
 
 		{
@@ -133,6 +135,20 @@ function PortfolioController($sce){
       ],
 			icon: 'img/mixcritic-icon.png'
     },
+    
+    {
+      name: 'WhoIsHiring',
+      description: "Pure AngularJS app for searching through whoishiring's monthly submissions on HackerNews.",
+      points: [
+				'Coming soon'
+      ],
+      links: [
+				{title: 'Site', url: 'http://johnanthony-dev.com/job-search/'},
+				{title: 'Github', url: 'https://github.com/coffeeexistence/who-is-hiring'}
+      ],
+			icon: 'img/jobsearch-icon.png'
+    },
+    
 		{
       name: 'Tic Tac Toe AI',
       description: 'Always ends in a Win or Draw, if maximum difficulty is selected.',

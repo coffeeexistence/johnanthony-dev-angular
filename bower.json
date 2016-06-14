@@ -9,7 +9,8 @@
     "angular": "1.5.5",
     "angular-ui-router": "^0.2.18",
     "angular-sanitize": "^1.5.5",
-    "angular-material": "master"
+    "angular-material": "master",
+    "jquery": "^2.2.4"
   },
   "license": "MIT",
   "homepage": "johnanthony-dev.com",
