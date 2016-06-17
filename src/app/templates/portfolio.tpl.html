@@ -1,71 +1,74 @@
-<div layout="row" layout-align="center center">
-  <div class="portfolio-header md-whiteframe-z5 clearfix" layout-padding flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+<div class="animated fadeIn">
+  <div layout="row" class="" layout-align="center center">
+    <div class="portfolio-header md-whiteframe-z5 clearfix" layout-padding flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
 
-      <div>
-        <img id="me" src="img/me.png" />
-      </div>
-
-      <div class="name centered-margins secondary-grey-lighten-4">John <span class="secondary-grey-lighten-1">Anthony</span> Rivera</div>
-
-      <div  layout="row" layout-wrap layout-align="space-around center">
-        <div class="contact-item">951-553-4461</div>
-        <div class="contact-item">johnanthony.dev@gmail.com</div>
-        <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
-        <a class="contact-item" href="http://johnanthony-dev.com/blog/">Blog</a>
-      </div>
-  </div>
-</div> 
-
-<div layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
-
-
-
-  <div class="portfolio-section" layout="row" layout-wrap layout-align="space-around start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
-
-      <div id="left" class="portfolio-section primary-color" flex-gt-md="75" flex="99" layout="column" layout-wrap>
-        <div id="experience">
-          <h2>Technical Experience</h2>
-          <div class="indented">
-            <div ng-repeat="project in ctrl.technicalExperience">
-              <portfolio-project project="project" ></portfolio-project>
-              <md-divider ng-if="!$last"></md-divider>
-            </div>
-          </div>
+        <div>
+          <img id="me" src="img/me.png" />
         </div>
-        <div id="history">
-          <h2 class="primary-color">Employment History</h2>
-          <md-list class="indented secondary-grey-lighten-3">
-            <div ng-repeat="job in ctrl.history">
-              <h3 class="header ">{{job.name}}</h3>
-              <div class="subheader">
-                <span class="text-grey">{{job.title}}</span>
-                <span class="text-grey"> ({{job.dateString}})</span>
+
+        <div class="name centered-margins secondary-grey-lighten-4">John <span class="secondary-grey-lighten-1">Anthony</span> Rivera</div>
+
+        <div  layout="row" layout-wrap layout-align="space-around center">
+          <div class="contact-item">951-553-4461</div>
+          <div class="contact-item">johnanthony.dev@gmail.com</div>
+          <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
+          <a class="contact-item" href="http://johnanthony-dev.com/blog/">Blog</a>
+        </div>
+    </div>
+  </div> 
+
+  <div layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
+
+
+
+    <div class="portfolio-section " layout="row" layout-wrap layout-align="space-around start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
+
+        <div id="left" class="portfolio-section primary-color" flex-gt-md="75" flex="99" layout="column" layout-wrap>
+          <div id="experience">
+            <h2>Technical Experience</h2>
+            <div class="indented">
+              <div ng-repeat="project in ctrl.technicalExperience">
+                <portfolio-project project="project" ></portfolio-project>
+                <md-divider ng-if="!$last"></md-divider>
               </div>
-
-
-              <md-list-item ng-repeat="point in job.points">
-                <div class="list-item">{{point}}</div>
-              </md-list-item>
-              <md-divider ng-if="!$last"></md-divider>
             </div>
-          </md-list>
-        </div>
-    </div>
+          </div>
+          <div id="history">
+            <h2 class="primary-color">Employment History</h2>
+            <md-list class="indented secondary-grey-lighten-3">
+              <div ng-repeat="job in ctrl.history">
+                <h3 class="header ">{{job.name}}</h3>
+                <div class="subheader">
+                  <span class="text-grey">{{job.title}}</span>
+                  <span class="text-grey"> ({{job.dateString}})</span>
+                </div>
 
-    <div id="right" class="skill-set secondary-grey" flex-gt-md="25" flex="99" layout="column" layout-fill layout-align="start start">
-      <h2 >Skill Set</h2>
-      <div layout="row" layout-align="space-between space-between" layout-align-gt-md="start space-between" layout="row" layout-fill  layout-wrap>
-        <div class="skill" ng-repeat="tier1 in ctrl.skills">
-          <h3>{{tier1.title}}</h3>
-          <div class="sub-skill" ng-repeat="tier2 in tier1.subSkills">
-            <h4>{{tier2.title}}</h4>
-            <div class="sub-skill" ng-repeat="tier3 in tier2.subSkills">
-              <h5>{{tier3.title}}</h5>
+
+                <md-list-item ng-repeat="point in job.points">
+                  <div class="list-item">{{point}}</div>
+                </md-list-item>
+                <md-divider ng-if="!$last"></md-divider>
+              </div>
+            </md-list>
+          </div>
+      </div>
+
+      <div id="right" class="skill-set secondary-grey" flex-gt-md="25" flex="99" layout="column" layout-fill layout-align="start start">
+        <h2 >Skill Set</h2>
+        <div layout="row" layout-align="space-between space-between" layout-align-gt-md="start space-between" layout="row" layout-fill  layout-wrap>
+          <div class="skill" ng-repeat="tier1 in ctrl.skills">
+            <h3>{{tier1.title}}</h3>
+            <div class="sub-skill" ng-repeat="tier2 in tier1.subSkills">
+              <h4>{{tier2.title}}</h4>
+              <div class="sub-skill" ng-repeat="tier3 in tier2.subSkills">
+                <h5>{{tier3.title}}</h5>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
+  
 </div>

@@ -3,6 +3,31 @@ function PortfolioController($sce){
 
   ctrl.skills = [
     {
+      title: 'JavaScript',
+      subSkills: [
+        {
+          title: 'AngularJS',
+          subSkills: [
+            {title: 'Controllers'},
+            {title: 'Directives'},
+            {title: 'Services'},
+            {title: 'Routing'},
+            {title: 'Asynchronous Callbacks'},
+            {title: '$scope'},
+            {title: '$http'},
+						{title: 'Angular Material'}
+          ]
+        },
+        {title: 'Closures'},
+        {title: 'Factories'},
+        {title: 'Prototypal Inheritance'},
+				{title: 'JSON'},
+        {title: 'jQuery'},
+				{title: 'Bower'},
+				{title: 'Grunt'}
+      ]
+    },
+    {
       title: 'Ruby',
       subSkills: [
         {title: 'Test Driven Development'},
@@ -28,28 +53,7 @@ function PortfolioController($sce){
         }
       ]
     },
-    {
-      title: 'JavaScript',
-      subSkills: [
-        {
-          title: 'AngularJS',
-          subSkills: [
-            {title: 'Controllers'},
-            {title: 'Directives'},
-            {title: 'Services'},
-            {title: 'Routing'},
-            {title: 'Asynchronous Callbacks'},
-            {title: '$scope'},
-            {title: '$http'},
-						{title: 'Angular Material'}
-          ]
-        },
-				{title: 'JSON'},
-        {title: 'jQuery'},
-				{title: 'Bower'},
-				{title: 'Grunt'}
-      ]
-    },
+    
     {
       title: 'HTML & CSS',
       subSkills: [
@@ -90,7 +94,7 @@ function PortfolioController($sce){
       description: 'Module which reduces requests, loading-time, and backend overhead.',
       points: [
 				"Caches requested resources for future use.",
-				"Collects individual requests into one large batch request.",
+				"Aggregates requests made within a certain timeframe into one large batch request.",
 				"Utilizing ResourceManager in MixCritic for user:show reduced requests on front page from 23 to 1, and reduced load times on live production server by a noticeable margin.",
         "ResourceManger.create(resourceName, httpBatchRequest) factory returns a manager object specifically for the requested resource",
         "Currently available through Bower"
@@ -102,7 +106,7 @@ function PortfolioController($sce){
     },
 		{
       name: 'Surak',
-      description: 'Surak a quick and easy RubyGem for creating, serving, and compiling production-ready angular apps with Bower and Grunt.',
+      description: 'RubyGem for creating, serving, and compiling production-ready angular apps with Bower and Grunt.',
       points: [
 				"Creates ready-to-go projects preloaded with angular and angular-material with 'surak new project-name'",
 				"Makes working with Bower & Grunt easier",

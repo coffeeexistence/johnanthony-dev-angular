@@ -4,15 +4,19 @@
   		scope: {
   			project: '='
   		},
-  		controller: function($scope, $sce){
+  		controller: ['$scope', '$sce', function($scope, $sce){
         var ctrl = this;
+				
+				$scope.expand = {
+					state: false,
+					text: 'more',
+					toggle: function() {
+						this.state = !this.state;
+						this.text = (this.state ? "less" : "more")
+					}
+				};
 
-        ctrl.expanded = false;
-
-        ctrl.toggleExpansion = function(){
-          ctrl.expanded = !ctrl.expanded;
-        };
-    	},
+    	}],
   		controllerAs: 'projectCtrl',
   		templateUrl: 'templates/project.tpl.html',
   		link: function(scope, elem, attrs, ctrl) {
