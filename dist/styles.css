@@ -3344,6 +3344,13 @@
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+.codify-keyword {
+    color: #81308F;
+}
+
+.codify-variable {
+    color: #CC6F7A;
+}
 .primary-color {
   color: #26283C;
 }
