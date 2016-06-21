@@ -211,6 +211,7 @@ h5 {
   background-image: url('img/marble.jpg');
   background-position: center; 
   background-repeat: no-repeat;
+  overflow:hidden;
   color: grey;
   margin: 3em 0em 3em 0em;
   border-radius: 3px;
@@ -234,7 +235,7 @@ h5 {
 .flex { flex : 1 1 0%; }
 
 #me {
-  height: 400px;
+  width: 400px;
 }
 
 .clearfix {
@@ -282,9 +283,9 @@ h5 {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 400px) {
   #me {
-    width: 22%;
+    width: 100%;
   }
 }
 

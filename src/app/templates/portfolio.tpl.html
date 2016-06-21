@@ -2,23 +2,28 @@
   <div layout="row" class="" layout-align="center center">
     <div class="portfolio-header md-whiteframe-z1 clearfix" 
     layout="row"
-    layout-align="space-between center" 
+    layout-align="center center"  
+    layout-wrap
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
-         <div flex class="secondary-grey-lighten-1 name">
+    
+         <div flex="99" flex-gt-sm="99" class="secondary-grey-lighten-1 name">
            John <span class="secondary-grey-lighten-4">Anthony</span> Rivera<br>
            <what-am-i></what-am-i>
          </div>
-         <img href id="me" src="img/me2.png">
+         <img flex="99" flex-gt-sm="99" href id="me" src="img/me2.png">
         
     </div>
   </div> 
   
-  <div layout="row" layout-wrap layout-align="space-around center">
-    <div class="contact-item">951-553-4461</div>
-    <div class="contact-item">johnanthony.dev@gmail.com</div>
-    <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
-    <a class="contact-item" href="http://johnanthony-dev.com/blog/">Blog</a>
+  <div ng-show="showContactInfo"> 
+    <div layout="row" layout-wrap layout-align="space-around center">
+      <div class="contact-item">951-553-4461</div>
+      <div class="contact-item">johnanthony.dev@gmail.com</div>
+      <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
+      <a class="contact-item" href="http://johnanthony-dev.com/blog/">Blog</a>
+    </div>
   </div>
+  
   
   <a href ng-click="showCode=true" class="centered-margins secondary-grey-lighten-4">(Click for code)</a>
   
@@ -58,7 +63,7 @@
     </div>
   
 
-  <div layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
+  <div ng-show="showProjects" layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
 
     <div class="portfolio-section " layout="row" layout-wrap layout-align="space-around start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
 
