@@ -1,11 +1,26 @@
-function PortfolioController($sce){
+function PortfolioController($sce, $scope){
 	var ctrl = this;
   
-  ctrl.me = {
-    traits: [
-      
-    ]
-  };
+  $scope.tabs = {
+    tabs: [
+      'Code',
+      'Projects & Experience',
+      'Contact'
+    ],
+    currentIndex: 1,
+    set: function(index) {
+      this.currentIndex = index;
+    },
+    currentTitle: function() {
+      return this.tabs[this.currentIndex];  
+    },
+    selected: function(index) {
+      return (this.currentIndex === index);
+    },
+    on: function(title){
+      return (title === this.currentTitle());
+    }
+  }
   
   ctrl.gists = [
     {
@@ -222,4 +237,4 @@ function PortfolioController($sce){
 
 angular
 	.module('app')
-	.controller('PortfolioController', PortfolioController);
+	.controller('PortfolioController', ['$sce', '$scope', PortfolioController]);

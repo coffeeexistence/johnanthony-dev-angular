@@ -2,9 +2,12 @@ html {
   font-family: Roboto,"Helvetica Neue",sans-serif;
   font-weight: 400;
   color: #545454;
+  height:100%;
+  width:100%;
 }
 
 body {
+  height:100%;
   width: 100%;
   max-width: 100%;
 }
@@ -201,6 +204,20 @@ h5 {
 .contact-btn {
     text-transform: lowercase;
     font-size: 10%;
+}
+
+
+.tab-selector {
+  margin-bottom: 2em;
+}
+
+.tab {
+  font-size: 20px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 7px;
+}
+.tab a {
+  color: #545454;
 }
 
 

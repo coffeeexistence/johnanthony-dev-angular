@@ -3528,13 +3528,78 @@
       opacity: 1;
   }
 }
+
+
+
+
+
+
+.tab-selected {
+    -webkit-animation: tab-selected 1s forwards; /* Chrome, Safari, Opera */
+    animation: tab-selected 1s forwards;
+}
+ 
+/* Chrome, Safari, Opera */
+@-webkit-keyframes tab-selected {
+  0% {
+      background-color: rgba(0, 0, 0, 0.0);
+  }  
+
+  100% {
+      background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Standard syntax */
+@keyframes tab-selected {
+  0% {
+      background-color: rgba(0, 0, 0, 0.0);
+  }  
+
+  100% {
+      background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+
+
+.tab-unselected {
+    -webkit-animation: tab-unselected 1s forwards; /* Chrome, Safari, Opera */
+    animation: tab-unselected 1s forwards;
+}
+ 
+/* Chrome, Safari, Opera */
+@-webkit-keyframes tab-unselected {
+  0% {
+      background-color: rgba(0, 0, 0, 0.1);
+  }  
+
+  100% {
+      background-color: rgba(0, 0, 0, 0.0);
+  }
+}
+
+/* Standard syntax */
+@keyframes tab-unselected {
+  0% {
+      background-color: rgba(0, 0, 0, 0.1);
+  }  
+
+  100% {
+      background-color: rgba(0, 0, 0, 0.0);
+  }
+}
 html {
   font-family: Roboto,"Helvetica Neue",sans-serif;
   font-weight: 400;
   color: #545454;
+  height:100%;
+  width:100%;
 }
 
 body {
+  height:100%;
   width: 100%;
   max-width: 100%;
 }
@@ -3731,6 +3796,20 @@ h5 {
 .contact-btn {
     text-transform: lowercase;
     font-size: 10%;
+}
+
+
+.tab-selector {
+  margin-bottom: 2em;
+}
+
+.tab {
+  font-size: 20px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 7px;
+}
+.tab a {
+  color: #545454;
 }
 
 
