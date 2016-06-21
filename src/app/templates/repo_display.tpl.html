@@ -1,4 +1,5 @@
 Hello!
 <div  style="margin:2em;" ng-repeat="file in browser.files">
-    <p ng-bind-html="file.text | codify"></p>
+    <pre><code data-language="javascript">{{file.text}}</code></pre>
+    
 </div>

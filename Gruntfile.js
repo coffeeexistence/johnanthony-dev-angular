@@ -33,6 +33,7 @@ module.exports = function(grunt) {
       },
       vendor: {
         src: [
+          'vendor/jquery/jquery.min.js',
           "vendor/angular/angular.min.js",
           "vendor/angular-aria/angular-aria.min.js",
           "vendor/angular-animate/angular-animate.min.js",
@@ -40,7 +41,8 @@ module.exports = function(grunt) {
           "vendor/angular-ui-router/release/angular-ui-router.min.js",
           "vendor/angular-sanitize/angular-sanitize.min.js",
           'vendor/angular-bind-html-compile/angular-bind-html-compile.min.js',
-          'vendor/jquery/dist/jquery.min.js'
+          'vendor/angular-gist-embed/dist/angular-gist-embed.min.js'
+          
         ],
         dest: 'build/vendor.min.js'
       },

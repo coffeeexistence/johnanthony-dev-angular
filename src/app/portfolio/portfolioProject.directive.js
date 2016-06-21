@@ -5,8 +5,7 @@
   			project: '='
   		},
   		controller: ['$scope', '$sce', function($scope, $sce){
-        var ctrl = this;
-				
+        var ctrl = this; 
 				$scope.expand = {
 					state: false,
 					text: 'more',
@@ -15,13 +14,9 @@
 						this.text = (this.state ? "less" : "more")
 					}
 				};
-
     	}],
   		controllerAs: 'projectCtrl',
-  		templateUrl: 'templates/project.tpl.html',
-  		link: function(scope, elem, attrs, ctrl) {
-
-  		}
+  		templateUrl: 'templates/project.tpl.html'
   	};
   }
 

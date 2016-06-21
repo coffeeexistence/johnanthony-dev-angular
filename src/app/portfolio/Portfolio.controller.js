@@ -1,5 +1,26 @@
 function PortfolioController($sce){
 	var ctrl = this;
+  
+  ctrl.me = {
+    traits: [
+      
+    ]
+  };
+  
+  ctrl.gists = [
+    {
+      title: 'HackerRank: Largest Rectangle', 
+      link: '',
+      problem: 'There are N buildings in a certain two-dimensional landscape. Each building has a height given by H. If you join N adjacent buildings, they will form a solid rectangle of area A. Given N buildings, find the greatest such solid area formed by any number of consecutive buildings.',
+      solution: 'Although the solution I ended up with was fairly simple, it took quite a few attempts to get it right.',
+      id:'f34dc102b8e2dfdc9e39a0726fe9fe28'
+    } 
+  ];
+  
+  ctrl.gists = ctrl.gists.map(function(gist){
+    gist.url = $sce.trustAsResourceUrl(gist.url);
+    return gist;
+  });
 
   ctrl.skills = [
     {
@@ -12,15 +33,13 @@ function PortfolioController($sce){
             {title: 'Directives'},
             {title: 'Services'},
             {title: 'Routing'},
-            {title: 'Asynchronous Callbacks'},
             {title: '$scope'},
-            {title: '$http'},
 						{title: 'Angular Material'}
           ]
         },
         {title: 'Closures'},
+        {title: 'Callbacks'},
         {title: 'Factories'},
-        {title: 'Prototypal Inheritance'},
 				{title: 'JSON'},
         {title: 'jQuery'},
 				{title: 'Bower'},
@@ -32,22 +51,12 @@ function PortfolioController($sce){
       subSkills: [
         {title: 'Test Driven Development'},
         {title: 'Refactoring'},
-        {title: 'Best Practices'},
-        {
-          title: 'Object Orientation',
-          subSkills: [
-            {title: 'Attribute Accessors'},
-            {title: 'Instance & Class Methods'}
-          ]
-        },
+        {title: 'Object Orientation'},
         {
           title: 'Rails Framework',
           subSkills: [
             {title: 'ActiveRecord'},
             {title: 'ActiveView'},
-            {title: 'Controllers'},
-            {title: 'Devise'},
-            {title: 'ERB'},
             {title: 'Deployment'}
           ]
         }
@@ -57,12 +66,7 @@ function PortfolioController($sce){
     {
       title: 'HTML & CSS',
       subSkills: [
-				{title: 'Mobile Design'},
-				{title: 'Responsive Layouts'},
-        {title: 'Formatting'},
-        {title: 'Positioning'},
-        {title: 'Selectors'},
-        {title: 'Media Queries'},
+				{title: 'Responsiveness'},
         {title: 'SASS'},
 				{
 					title: 'Popular CSS Libraries',
@@ -78,9 +82,7 @@ function PortfolioController($sce){
       subSkills: [
         {title: 'Package Management'},
         {title: 'Bash'},
-        {title: 'Filesystem Navigation'},
         {title: 'Scripting/Automation'},
-        {title: 'File Privileges'}
       ]
     }
 
@@ -200,30 +202,6 @@ function PortfolioController($sce){
         'Calculated current & projected financial stats for budgeting & business planning',
         'Created advertising material, website, & social media presence',
         'Filed 2015 Taxes (State & Federal) in early 2016'
-      ]
-    },
-    {
-      name: 'Uhaul Moving & Storage',
-      location: 'Murrieta, CA',
-      title: 'Customer Service Representative',
-      dateString: 'October 2015 - Present',
-      points: [
-				'Received, inspected, & dispatched up to 20 rental vehicles per hour',
-				'Provided helpful customer service & managed customer reservations',
-				'Installed hitches, vehicle wiring systems, and brake controllers'
-      ]
-    },
-    {
-      name: "Albertson's",
-      location: 'Murrieta, CA',
-      title: 'Meat Department Clerk',
-      dateString: 'June  2015 - December 2015',
-      points: [
-				'Served up to 350 customers per day',
-        'Handled, cut, and prepared meat and seafood',
-        'Maintained glass displays and scales',
-				'Cleaned & sanitized heavy duty meat cutting/grinding equipment',
-				'Designed creative and eye-grabbing appetizers.'
       ]
     }
   ];

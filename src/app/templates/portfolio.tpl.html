@@ -1,27 +1,63 @@
 <div class="animated fadeIn">
   <div layout="row" class="" layout-align="center center">
-    <div class="portfolio-header md-whiteframe-z5 clearfix" layout-padding flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
-
-        <div>
-          <img id="me" src="img/me.png" />
-        </div>
-
-        <div class="name centered-margins secondary-grey-lighten-4">John <span class="secondary-grey-lighten-1">Anthony</span> Rivera</div>
-
-        <div  layout="row" layout-wrap layout-align="space-around center">
-          <div class="contact-item">951-553-4461</div>
-          <div class="contact-item">johnanthony.dev@gmail.com</div>
-          <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
-          <a class="contact-item" href="http://johnanthony-dev.com/blog/">Blog</a>
-        </div>
+    <div class="portfolio-header md-whiteframe-z1 clearfix" 
+    layout="row"
+    layout-align="space-between center" 
+    flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+         <div flex class="secondary-grey-lighten-4 name">
+           John <span class="secondary-grey-lighten-1">Anthony</span> Rivera
+         </div>
+         <img href id="me" src="img/bg.jpg">
+        
     </div>
   </div> 
   
-  <repo-display></repo-display>
+  <div layout="row" layout-wrap layout-align="space-around center">
+    <div class="contact-item">951-553-4461</div>
+    <div class="contact-item">johnanthony.dev@gmail.com</div>
+    <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
+    <a class="contact-item" href="http://johnanthony-dev.com/blog/">Blog</a>
+  </div>
+  
+  <a href ng-click="showCode=true" class="centered-margins secondary-grey-lighten-4">(Click for code)</a>
+  
+  
+  <div ng-show="showCode" class="" layout="row" class="" layout-align="center center">
+    <div  class="" layout="column" flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+        
+        <div layout="row" layout-align="center center">
+          <div flex> <hr class="gist-title-hr"></div>
+          <h2 style="padding: 1em 1em 1em 1em;">The Gist Of It</h2>
+          <div flex><hr class="gist-title-hr"></div>
+        </div>
+        
+        <div class="gist-description" ng-repeat="gist in ctrl.gists" layout="row" layout-align="start start">
+          <div flex="35">
+            <div class="gist-title">{{gist.title}}</div>
+            <h3 class="x-thin">Problem</h3>
+            <p class="secondary-grey-lighten-2 x-thin">
+              {{gist.problem}}
+            </p>
+            <h3 class="x-thin">Solution</h3>
+            <p class="secondary-grey-lighten-1 x-thin">
+              {{gist.solution}}
+            </p>
+          </div>
+          <md-content class="gist-container" flex>
+            <code style="max-height: 800px; overflow:auto;" data-gist-id="{{gist.id}}"></code>
+          </md-content>
+        </div>
+        
+        <div layout="row" layout-align="center center">
+          <div flex><hr class="gist-title-hr"></div>
+        </div>
+        
+      </div>
+
+    </div>
+  
 
   <div layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
-
-    
 
     <div class="portfolio-section " layout="row" layout-wrap layout-align="space-around start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
 
@@ -35,8 +71,8 @@
               </div>
             </div>
           </div>
-          <div id="history">
-            <h2 class="primary-color">Employment History</h2>
+          <div id="history" style="margin-top: 2em;">
+            <h2 class="primary-color">History</h2>
             <md-list class="indented secondary-grey-lighten-3">
               <div ng-repeat="job in ctrl.history">
                 <h3 class="header ">{{job.name}}</h3>
