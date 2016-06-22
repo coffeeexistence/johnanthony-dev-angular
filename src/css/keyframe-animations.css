@@ -19,20 +19,19 @@
 
 
 
-.gist-container {
-    -webkit-animation: gist-expand-container 2s; /* Chrome, Safari, Opera */
-    animation: gist-expand-container 2s;
+.gist {
+    -webkit-animation: gist-expand-container 1.75s; /* Chrome, Safari, Opera */
+    animation: gist-expand-container 1.75s;
 }
  
 /* Chrome, Safari, Opera */
 @-webkit-keyframes gist-expand-container {
   0% {
-      max-height: 0px;
       transform: translateX(100%);
       opacity: 0;
   }
   25% {
-      max-height: 1000px;
+      max-height: 1500px;
       transform: translateX(100%);
       opacity: 0;
   }
@@ -51,7 +50,7 @@
       opacity: 0;
   }
   25% {
-      max-height: 1000px;
+      max-height: 1500px;
       transform: translateX(100%);
       opacity: 0;
   }

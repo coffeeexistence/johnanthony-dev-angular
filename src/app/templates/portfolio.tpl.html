@@ -6,11 +6,11 @@
     layout-wrap
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
     
-         <div flex="99" flex-gt-sm="99" class="secondary-grey-lighten-1 name">
-           John <span class="secondary-grey-lighten-4">Anthony</span> Rivera<br>
-           <what-am-i></what-am-i>
-         </div>
-         <img flex="99" flex-gt-sm="99" href id="me" src="img/me2.png">
+      <div flex="99" flex-gt-sm="99" class="secondary-grey-lighten-1 name">
+        John <span class="secondary-grey-lighten-4">Anthony</span> Rivera<br>
+        <what-am-i></what-am-i>
+      </div>
+      <img flex="99" flex-gt-sm="99" href id="me" src="img/me2.png">
         
     </div>
   </div> 
@@ -20,8 +20,7 @@
   
   <div layout="row" flex="99" layout-align="center center">
     <div class="tab-selector"
-    layout="row" 
-    layout-align="space-between center"
+    layout="row" layout-align="space-between center"
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
       <div ng-repeat="tab in tabs.tabs track by $index">
         <div class="tab" ng-class="{'tab-selected': tabs.selected($index), 'tab-unselected': !tabs.selected($index)}">
@@ -34,13 +33,31 @@
   </div>
   
   
-  <div ng-show="tabs.on('Contact')"> 
-    <div layout="row" layout-wrap layout-align="space-around center">
-      <div class="contact-item">951-553-4461</div>
-      <div class="contact-item">johnanthony.dev@gmail.com</div>
-      <a class="contact-item" href="https://github.com/coffeeexistence">Github</a>
-      <a class="contact-item" href="http://johnanthony-dev.com/blog/">Blog</a>
+  <div ng-show="tabs.on('Contact')" layout="column" layout-align="center center" flex="99"> 
+
+    <div id="contacts-container" class="animated fadeInRight"
+    layout="column" layout-align="start start"
+    flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+      
+      <div class="contact-item" layout="row" layout-align="center center">
+        <ng-md-icon icon="phone_iphone" size="64" style="fill: #D0D0D0;"></ng-md-icon>
+        <div>951-553-4461</div>
+      </div>
+
+      <div class="contact-item" layout="row" layout-align="center center">
+        <ng-md-icon icon="email" size="64" style="fill: #D0D0D0;"></ng-md-icon> 
+        <div>johnanthony.dev@gmail.com</div>
+      </div>
+
+      <div class="contact-item" layout="row" layout-align="center center">
+        <ng-md-icon icon="github-circle" size="64" style="fill: #D0D0D0;"></ng-md-icon> 
+        <div>Github: coffeeexistence</div>
+      </div>
+
     </div>
+      
+      
+
   </div>
   
   <div ng-show="tabs.on('Code')" class="" layout="row" class="" layout-align="center center">
@@ -48,25 +65,28 @@
         
         <div layout="row" layout-align="center center">
           <div flex> <hr class="gist-title-hr"></div>
-          <h2 style="padding: 1em 1em 1em 1em;">The Gist Of It</h2>
-          <div flex><hr class="gist-title-hr"></div>
+          <h2 style="margin: 1em; padding-left: 0px;">The Gist Of It</h2>
+          <div flex><hr class="gist-title-hr"></div> 
         </div>
         
-        <div class="gist-description" ng-repeat="gist in ctrl.gists" layout="row" layout-align="start start">
-          <div flex="35">
-            <div class="gist-title">{{gist.title}}</div>
+
+        <div class="gist-description" layout="row" layout-align="start start" layout-wrap>
+          <div flex="99" flex-gt-sm="35">
+            
+            <div layout="row" layout-align="start start" style="margin-bottom: 1em;">
+              <a><ng-md-icon ng-click="gists.previous();" icon="arrow_back" size="32" style="fill: #D0D0D0;"></ng-md-icon></a> 
+              <a><ng-md-icon ng-click="gists.next();" icon="arrow_forward" size="32" style="fill: #D0D0D0;"></ng-md-icon></a> 
+            </div>
+            
+            <div class="gist-title">{{gists.current().title}}</div>
             <h3 class="x-thin">Problem</h3>
-            <p class="secondary-grey-lighten-2 x-thin">
-              {{gist.problem}}
-            </p>
+            <p class="secondary-grey-lighten-2 x-thin">{{gists.current().problem}}</p>
             <h3 class="x-thin">Solution</h3>
-            <p class="secondary-grey-lighten-1 x-thin">
-              {{gist.solution}}
-            </p>
+            <p class="secondary-grey-lighten-1 x-thin">{{gists.current().solution}}</p>
           </div>
-          <md-content class="gist-container" flex>
-            <code style="max-height: 800px; overflow:auto;" data-gist-id="{{gist.id}}"></code>
-          </md-content>
+          
+          <div id="gist-container" flex="99" flex-gt-sm="65" ></div>
+          
         </div>
         
         <div layout="row" layout-align="center center">
@@ -80,7 +100,7 @@
 
   <div ng-show="tabs.on('Projects & Experience')" layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
 
-    <div class="portfolio-section " layout="row" layout-wrap layout-align="space-around start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
+    <div class="portfolio-section animated fadeInRight" layout="row" layout-wrap layout-align="space-around start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
 
         <div id="left" class="portfolio-section primary-color" flex-gt-md="75" flex="99" layout="column" layout-wrap>
           <div id="experience">

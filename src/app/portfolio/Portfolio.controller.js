@@ -1,4 +1,4 @@
-function PortfolioController($sce, $scope){
+function PortfolioController($sce, $scope, $timeout){
 	var ctrl = this;
   
   $scope.tabs = {
@@ -22,20 +22,56 @@ function PortfolioController($sce, $scope){
     }
   }
   
-  ctrl.gists = [
-    {
-      title: 'HackerRank: Largest Rectangle', 
-      link: '',
-      problem: 'There are N buildings in a certain two-dimensional landscape. Each building has a height given by H. If you join N adjacent buildings, they will form a solid rectangle of area A. Given N buildings, find the greatest such solid area formed by any number of consecutive buildings.',
-      solution: 'Although the solution I ended up with was fairly simple, it took quite a few attempts to get it right.',
-      id:'f34dc102b8e2dfdc9e39a0726fe9fe28'
-    } 
-  ];
+  $scope.gists = {
+    gists: [
+      {
+        title: 'HackerRank: Largest Rectangle', 
+        link: '',
+        problem: 'There are N buildings in a certain two-dimensional landscape. Each building has a height given by H. If you join N adjacent buildings, they will form a solid rectangle of area A. Given N buildings, find the greatest such solid area formed by any number of consecutive buildings.',
+        solution: 'Although the solution I ended up with was fairly simple, it took quite a few attempts to get it right.',
+        id:'f34dc102b8e2dfdc9e39a0726fe9fe28'
+      },
+      
+      {
+        title: 'Tic Tac Toe A.I.', 
+        link: '',
+        problem: 'Build a Tic Tac Toe A.I. that always wins or ends in draw.',
+        solution: 'Solution description coming soon.',
+        id:'02130b87bfd085711cca9f124aba89e2'
+      }
+    ],
+    currentIndex: 0,
+    current: function() {
+      return this.gists[this.currentIndex];
+    },
+    nextAvailable: function() { return (this.gists.length-1)>this.currentIndex; },
+    previousAvailable: function() { return this.currentIndex>0; },
+    next: function(){ 
+      if (this.nextAvailable()) { 
+        this.currentIndex++; 
+        this.compile();
+      } 
+    },
+    previous: function(){ 
+      if (this.previousAvailable()) { 
+        this.currentIndex--; 
+        this.compile();
+      } 
+    },
+    compile: function() {
+      $('#gist-container').empty();
+      $('#gist-container').append('<code class="gist" data-gist-id="' + this.current().id + '"></code>');
+      angular.element('[data-gist-id]').gist();
+    }
+  };
   
-  ctrl.gists = ctrl.gists.map(function(gist){
-    gist.url = $sce.trustAsResourceUrl(gist.url);
-    return gist;
-  });
+  $timeout(function(){
+    $scope.gists.compile();
+  }, 50);
+  
+  
+  console.log($scope.gists.current());
+  
 
   ctrl.skills = [
     {
@@ -237,4 +273,4 @@ function PortfolioController($sce, $scope){
 
 angular
 	.module('app')
-	.controller('PortfolioController', ['$sce', '$scope', PortfolioController]);
+	.controller('PortfolioController', ['$sce', '$scope', '$timeout', PortfolioController]);
