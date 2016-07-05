@@ -11,7 +11,7 @@
                 'a JavaScript Developer.', 
                 'an Angular Superhero.', 
                 'a Rails Developer.', 
-                'a Coffee Enthusiast!!'
+                'a Coffee Enthusiast!'
             ];
             var thingIndex = 0;
             

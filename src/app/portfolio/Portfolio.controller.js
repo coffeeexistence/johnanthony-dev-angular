@@ -22,7 +22,7 @@ function PortfolioController($sce, $scope, $timeout){
     }
   }
   
-  $scope.gists = {
+  $scope.gists = { 
     gists: [
       {
         title: 'HackerRank: Largest Rectangle', 
@@ -67,7 +67,7 @@ function PortfolioController($sce, $scope, $timeout){
   
   $timeout(function(){
     $scope.gists.compile();
-  }, 50);
+  }, 1000);
   
   
   console.log($scope.gists.current());
@@ -83,7 +83,6 @@ function PortfolioController($sce, $scope, $timeout){
             {title: 'Controllers'},
             {title: 'Directives'},
             {title: 'Services'},
-            {title: 'Routing'},
             {title: '$scope'},
 						{title: 'Angular Material'}
           ]
@@ -93,22 +92,21 @@ function PortfolioController($sce, $scope, $timeout){
         {title: 'Factories'},
 				{title: 'JSON'},
         {title: 'jQuery'},
-				{title: 'Bower'},
 				{title: 'Grunt'}
       ]
     },
     {
       title: 'Ruby',
       subSkills: [
-        {title: 'Test Driven Development'},
-        {title: 'Refactoring'},
-        {title: 'Object Orientation'},
+        {title: 'OO Ruby'},
+        {title: 'Creating Gems'},
         {
           title: 'Rails Framework',
           subSkills: [
             {title: 'ActiveRecord'},
             {title: 'ActiveView'},
-            {title: 'Deployment'}
+            {title: 'Devise'},
+            {title: 'API Building'}
           ]
         }
       ]
@@ -128,16 +126,7 @@ function PortfolioController($sce, $scope, $timeout){
 				}
       ]
     },
-		{
-      title: 'Unix/Linux',
-      subSkills: [
-        {title: 'Package Management'},
-        {title: 'Bash'},
-        {title: 'Scripting/Automation'},
-      ]
-    }
-
-
+		{ title: 'Unix/Linux' }
   ];
 
 
@@ -186,7 +175,6 @@ function PortfolioController($sce, $scope, $timeout){
         'Connected to Amazon S3 for data storage'
       ],
       links: [
-        {title: 'Video Walkthrough', url: 'https://www.youtube.com/watch?v=SlNoUv6_LnQ'},
         {title: 'Github', url: 'https://github.com/coffeeexistence/mixcritic-angular'},
         {title: 'Live Demo', url: 'http://mix-critic.com/'}
       ],
@@ -242,6 +230,13 @@ function PortfolioController($sce, $scope, $timeout){
   ];
 
   ctrl.history = [
+    {
+      name: 'Freelance',
+      location: 'Remote',
+      title: 'Front End Web Developer',
+      dateString: 'May 2016 - Current',
+      points: [] 
+    },
     {
       name: 'Autocross Performance & Muffler',
       location: 'Lake Elsinore, CA',

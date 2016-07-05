@@ -8,10 +8,10 @@
         var ctrl = this; 
 				$scope.expand = {
 					state: false,
-					text: 'more',
+					text: 'MORE',
 					toggle: function() {
-						this.state = !this.state;
-						this.text = (this.state ? "less" : "more")
+						this.state = !this.state; 
+						this.text = (this.state ? "LESS" : "MORE")
 					}
 				};
     	}],

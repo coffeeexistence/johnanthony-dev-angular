@@ -1,6 +1,6 @@
 <div
-  ng-class="{'md-whiteframe-z2 fadeIn expanded': expand.state}"
-  class="noborder project-container group animated">
+  ng-class="{'expanded md-whiteframe-z1': expand.state}"
+  class="project-container group">
 
 
   <div class="slight-indent" layout="row" layout-align-xs="center center" layout-align="start center" layout-wrap>
@@ -17,36 +17,34 @@
     </div>
 
     <div flex-xs="99" flex-gt-xs="20"
-      ng-click="expand.toggle();"
-      class="text-grey"
-      layout="column"
-      layout-fill
-      layout-align="end start"
-      style="height: 100%;"
-      >
+         class="text-grey"
+         layout="column"
+         layout-fill
+         layout-align="end start"
+         style="height: 100%;">
       <div class="show-more">
-        <md-button class="md-raised text-grey">{{expand.text}}</md-button>
+        <ui-button ng-click="expand.toggle();" class="md-raised text-grey">{{expand.text}}</ui-button>
       </div>
 
     </div>
 
   </div>
 
-  <div layout="column" layout-align="center space-around">
+  <div layout="column" ng-show="expand.state" layout-align="center space-around">
 
-    <div class="list-item fill " ng-show="expand.state" ng-repeat="point in project.points">
+    <div class="list-item fill" ng-repeat="point in project.points" >
       <div class="project-points secondary-grey-lighten-3">&bull;  {{point}}</div>
     </div>
 
-    <md-divider ng-if="expand.state"></md-divider>
+    <md-divider></md-divider>
 
-    <div ng-show="expand.state" class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center" ng-click="">
+    <div class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center" ng-click="">
       <a ng-repeat="link in project.links" ng-href="{{link.url}}" target="_blank" class="text-grey">{{link.title}}</a>
     </div>
 
-    <md-divider ng-if="project.element && expand.state"></md-divider>
+    <md-divider ng-if="project.element"></md-divider>
 
-    <div ng-if="project.element && expand.state" bind-html-compile="project.element">{{project.element}}</div>
+    <div ng-if="project.element" bind-html-compile="project.element">{{project.element}}</div>
 
   </div>
 

@@ -11,7 +11,6 @@
         <what-am-i></what-am-i>
       </div>
       <img flex="99" flex-gt-sm="99" href id="me" src="img/me2.png">
-        
     </div>
   </div> 
   
@@ -20,15 +19,16 @@
   
   <div layout="row" flex="99" layout-align="center center">
     <div class="tab-selector"
-    layout="row" layout-align="space-between center"
+    layout="row" layout-align="space-around center"
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
-      <div ng-repeat="tab in tabs.tabs track by $index">
-        <div class="tab" ng-class="{'tab-selected': tabs.selected($index), 'tab-unselected': !tabs.selected($index)}">
-          <a href ng-click="tabs.set($index)">
-            {{tabs.tabs[$index]}}
-          </a>
-        </div>
+    
+      <div ng-repeat="tab in tabs.tabs track by $index" class="tab" 
+      ng-class="{'tab-selected': tabs.selected($index), 'tab-unselected': !tabs.selected($index)}">
+        <a flex href ng-click="tabs.set($index)">{{tabs.tabs[$index]}}</a>
       </div>
+      
+      
+      
     </div>
   </div>
   
@@ -40,28 +40,26 @@
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
       
       <div class="contact-item" layout="row" layout-align="center center">
-        <ng-md-icon icon="phone_iphone" size="64" style="fill: #D0D0D0;"></ng-md-icon>
+        <i class="material-icons md-48">phone_iphone</i>
         <div>951-553-4461</div>
       </div>
 
       <div class="contact-item" layout="row" layout-align="center center">
-        <ng-md-icon icon="email" size="64" style="fill: #D0D0D0;"></ng-md-icon> 
+        <i class="material-icons md-48">mail_outline</i>
         <div>johnanthony.dev@gmail.com</div>
       </div>
 
       <div class="contact-item" layout="row" layout-align="center center">
-        <ng-md-icon icon="github-circle" size="64" style="fill: #D0D0D0;"></ng-md-icon> 
+        <i class="material-icons md-48">code</i>
         <div>Github: coffeeexistence</div>
       </div>
 
     </div>
       
-      
-
   </div>
   
-  <div ng-show="tabs.on('Code')" class="" layout="row" class="" layout-align="center center">
-    <div  class="" layout="column" flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+  <div ng-show="tabs.on('Code')" layout="row" layout-align="center center" layout-padding>
+    <div layout="column" flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
         
         <div layout="row" layout-align="center center">
           <div flex> <hr class="gist-title-hr"></div>
@@ -73,9 +71,9 @@
         <div class="gist-description" layout="row" layout-align="start start" layout-wrap>
           <div flex="99" flex-gt-sm="35">
             
-            <div layout="row" layout-align="start start" style="margin-bottom: 1em;">
-              <a><ng-md-icon ng-click="gists.previous();" icon="arrow_back" size="32" style="fill: #D0D0D0;"></ng-md-icon></a> 
-              <a><ng-md-icon ng-click="gists.next();" icon="arrow_forward" size="32" style="fill: #D0D0D0;"></ng-md-icon></a> 
+            <div layout="row" class="gist-nav" layout-align="start start" style="margin-bottom: 1em;">
+              <i class="material-icons md-36" ng-click="gists.previous();">chevron_left</i>
+              <i class="material-icons md-36" ng-click="gists.next();">chevron_right</i>
             </div>
             
             <div class="gist-title">{{gists.current().title}}</div>
@@ -100,11 +98,11 @@
 
   <div ng-show="tabs.on('Projects & Experience')" layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
 
-    <div class="portfolio-section animated fadeInRight" layout="row" layout-wrap layout-align="space-around start" flex-xs="95" flex-sm="95" flex-md="85" flex-gt-md="70">
+    <div class="portfolio-section animated fadeInRight" layout="row"  layout-align="space-between start" layout-wrap flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
 
         <div id="left" class="portfolio-section primary-color" flex-gt-md="75" flex="99" layout="column" layout-wrap>
           <div id="experience">
-            <h2>Technical Experience</h2>
+            <h2>Projects</h2>
             <div class="indented">
               <div ng-repeat="project in ctrl.technicalExperience">
                 <portfolio-project project="project" ></portfolio-project>
@@ -132,9 +130,9 @@
           </div>
       </div>
 
-      <div id="right" class="skill-set secondary-grey" flex-gt-md="25" flex="99" layout="column" layout-fill layout-align="start start">
-        <h2 >Skill Set</h2>
-        <div layout="row" layout-align="space-between space-between" layout-align-gt-md="start space-between" layout="row" layout-fill  layout-wrap>
+      <div id="right" class="skill-set secondary-grey" flex-gt-md="20" flex="99" layout="column" layout-fill layout-align="start start">
+        <h2>Skills</h2>
+        <div layout="row" layout-align="start start" layout-align-gt-md="start start" layout-fill  layout-wrap>
           <div class="skill" ng-repeat="tier1 in ctrl.skills">
             <h3>{{tier1.title}}</h3>
             <div class="sub-skill" ng-repeat="tier2 in tier1.subSkills">
@@ -145,8 +143,9 @@
             </div>
           </div>
         </div>
-
       </div>
+      
+      
     </div>
   </div>
   

@@ -7,23 +7,45 @@ var files = [
   'src/third_party/**.js'
 ];
 
+var vendorCss = [
+  "vendor/angular-material/angular-material.min.css"
+]
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
 
+    sass: {                              // Task
+      dist: {                            // Target
+        options: {                       // Target options
+          style: 'expanded'
+        },
+        files: {                         
+          'build/app.css': 'build/app.scss'
+        }
+      }
+    },
+
     concat_css: {
       options: {
         // Task-specific options go here.
       },
-      all: {
+      app: {
         src: [
-          "vendor/angular-material/angular-material.min.css",
-          "src/css/*.css"
-      ],
-        dest: "dist/styles.css"
+          'src/sass/variables/*.scss',
+          'src/sass/*.scss'
+          ],
+        dest: 'build/app.scss'
       },
+      bundle: {
+        src: [
+          vendorCss,
+          "build/app.css"
+        ],
+          dest: "dist/styles.css"
+        },
     },
 
 
@@ -38,7 +60,6 @@ module.exports = function(grunt) {
           "vendor/angular-aria/angular-aria.min.js",
           "vendor/angular-animate/angular-animate.min.js",
           "vendor/angular-material/angular-material.min.js",
-          "vendor/angular-material-icons/angular-material-icons.min.js",
           "vendor/angular-ui-router/release/angular-ui-router.min.js",
           "vendor/angular-sanitize/angular-sanitize.min.js",
           'vendor/angular-bind-html-compile/angular-bind-html-compile.min.js',
@@ -72,7 +93,8 @@ module.exports = function(grunt) {
     uglify: {
         options: {
           mangle: false,
-          beautify: true
+          beautify: true,
+          compress: false
         },
         my_target: {
           files: {
@@ -110,9 +132,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-concat-css');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
 
-  //grunt.registerTask('default', ['concat_css', 'concat:vendor', 'ngtemplates', 'concat:app_src', 'uglify', 'concat:bundle' ]); // Production
-  grunt.registerTask('default', ['concat_css', 'concat:vendor', 'ngtemplates', 'concat:app_src', 'concat:bundle_dev' ]); // Development
+  // grunt.registerTask('default', ['concat_css', 'concat:vendor', 'ngtemplates', 'concat:app_src', 'uglify', 'concat:bundle' ]); // Production
+  grunt.registerTask('default', ['concat_css:app', 'sass', 'concat_css:bundle', 'concat:vendor', 'ngtemplates', 'concat:app_src', 'concat:bundle_dev' ]); // Development
 
 };

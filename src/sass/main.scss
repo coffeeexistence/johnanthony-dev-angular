@@ -10,6 +10,7 @@ body {
   height:100%;
   width: 100%;
   max-width: 100%;
+  overflow-x:hidden;  
 }
 
 .project-icon {
@@ -98,9 +99,15 @@ a {
 }
 
 .project-container {
-  padding-top: 5px;
+  padding-top: 7px;
   margin: 3em 1em 1em 9px;
   border-radius: 5px;
+}
+
+.project-container.expanded {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $border-color;
 }
 
 .project-title {
@@ -119,7 +126,8 @@ a {
 .skill {
   margin-left: 1em;
   padding-bottom: 0.7em;
-}
+  width: 100%;
+} 
 
 .sub-skill {
   margin-left: 1em;
@@ -171,6 +179,8 @@ a {
 .contact-item {
   font-size: 20px;
   color: #545454;
+  height:20px;
+  margin: 2em;
 }
 
 .contact-item div {
@@ -276,7 +286,14 @@ h5 {
   font-weight: 300;
 }
 
+.gist-nav i {
+  color: gray;
+  cursor:pointer;
+}
 
+.gist-description {
+  min-height: 700px;
+}
 
 
 @media (max-width: 1400px) {
@@ -285,9 +302,6 @@ h5 {
   }
 }
 
-@media (max-width: 1280px) {
-
-}
 
 @media (max-width: 960px) {
   .portfolio-header {
@@ -302,11 +316,12 @@ h5 {
   .tab {
     font-size: 14px;
   }
+  .contact-item {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 600px) {
-
-
 
   .portfolio-header {
     font-size: 0.8em;

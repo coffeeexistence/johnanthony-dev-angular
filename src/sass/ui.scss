@@ -1,0 +1,57 @@
+
+.ui-button-square {
+  text-decoration: none;
+  outline: none;
+  
+  font-size: 0.9em;
+  
+  border-width: 1px;
+  border-style: solid;
+  
+  background-color: $background-color;
+  
+  font-weight: 350;
+  
+  padding: 8px 30px 8px 30px;
+  border-radius: 4px;
+}
+
+.ui-btn-soft {
+    border-color: #BBB;
+    color: #666;
+}
+
+ui-button.ui-button-nomargin * {
+  margin: 0px;
+}
+
+.ui-button-square.clicked {
+  -webkit-animation-name: button-focus; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 0.5s; /* Chrome, Safari, Opera */
+  animation-name: button-focus;
+  animation-duration: 0.5s;
+}
+
+.ui-button-thin .ui-button-square{
+  font-size: 14px;
+  padding: 5px 40px 5px 40px;
+}
+
+@-webkit-keyframes button-focus {
+    10% {
+      background-color: darken($background-color, 7%);
+    }
+    100% {
+      background-color: $background-color;
+    }
+}
+
+/* Standard syntax */
+@keyframes button-focus { 
+    10% {
+      background-color: darken($background-color, 7%);
+    }
+    100% {
+      background-color: $background-color;
+    }
+}
