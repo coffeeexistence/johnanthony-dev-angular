@@ -20,13 +20,42 @@
         $scope.showAdvanced = function(ev) {
           var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
           $mdDialog.show({
-            controller: [ '$scope', '$mdDialog',
-            function Ctrl($scope, $mdDialog) {
-              this.project = projectScope.project;
+            controller: [ '$scope', '$mdDialog', '$interval',
+            function Ctrl($scope, $mdDialog, $interval) {
+              var dialogCtrl = this;
+              $scope.project = projectScope.project;
               console.log(this.project);
               $scope.closeDialog = function() {
                 $mdDialog.hide();
               };
+
+              $scope.mockup = {
+                current: undefined,
+                currentIndex: 0,
+                update: function() {
+                  this.current = $scope.project.mockups[this.currentIndex];
+                },
+                next: function() {
+                  console.log('old index:', this.currentIndex);
+                  if(this.currentIndex < $scope.project.mockups.length-1) {
+                    this.currentIndex++;
+                    this.update();
+                  } else {
+                    if(this.currentIndex!=0) {
+                      this.currentIndex = 0;
+                      this.update();
+                    }
+                  }
+                  console.log('new index:', this.currentIndex);
+                }
+              };
+
+              if($scope.mockup) {
+                $scope.mockup.update();
+                $interval(function(){ $scope.mockup.next() }, 3000);
+              }
+
+
             }],
             controllerAs: 'ctrl',
             templateUrl: 'templates/projectDialog.tpl.html',

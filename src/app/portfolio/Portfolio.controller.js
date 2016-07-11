@@ -148,7 +148,8 @@ function PortfolioController($sce, $scope, $timeout){
 			icon: 'img/ng-icon.png',
 
 			mockups: [
-				'img/mockups/hart-resized-1.png'
+				'img/mockups/hart-resized-1.png',
+				'img/mockups/hart-resized-2.png'
 			]
     },
     {

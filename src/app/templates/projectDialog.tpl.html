@@ -1,21 +1,21 @@
 <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
   <form>
     <div flex="99" class="project-dialog-header" layout="row" layout-align="center center">
-      <h2>{{ctrl.project.name}}</h2>
-      <!-- <div class="project-title header thin">{{ctrl.project.description}}</div> -->
+      <h2>{{project.name}}</h2>
+      <!-- <div class="project-title header thin">{{project.description}}</div> -->
     </div>
     <md-divider></md-divider>
     <md-dialog-content>
 
       <div class="md-dialog-content">
-        <img class="project-banner md-whiteframe-z1" ng-if="ctrl.project.banner" ng-src="{{ctrl.project.banner}}" />
+        <img class="project-banner md-whiteframe-z1" ng-if="project.banner" ng-src="{{project.banner}}" />
 
         <div layout="row" layout-align="center center" layout-wrap>
           <div flex-xs="99" flex-gt-xs="35" layout="column" layout-align="center center">
-            <img flex class="project-mockup animated fadeInLeft" ng-repeat="mockup in ctrl.project.mockups" ng-src="{{mockup}}" />
+            <img flex class="project-mockup animated fadeInLeft" ng-src="{{mockup.current}}" />
           </div>
           <div flex-xs="99" flex-gt-xs="60" layout="column" layout-align="center center">
-            <div class="list-item fill" ng-repeat="point in ctrl.project.points" >
+            <div class="list-item fill" ng-repeat="point in project.points" >
               <div class="project-points">&bull;  {{point}}</div>
             </div>
           </div>
@@ -25,7 +25,7 @@
       </div>
     </md-dialog-content>
     <md-dialog-actions class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center">
-      <a ng-repeat="link in ctrl.project.links" ng-href="{{link.url}}" target="_blank" class="text-grey">{{link.title}}</a>
+      <a ng-repeat="link in project.links" ng-href="{{link.url}}" target="_blank" class="text-grey">{{link.title}}</a>
       <ui-button ng-click="closeDialog()">Close</ui-button>
     </md-dialog-actions>
   </form>
