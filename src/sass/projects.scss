@@ -38,5 +38,11 @@
 
 .project-points {
   margin-right: 10px;
+  font-size: 1.1em;
+  color: lighten($primary-text-color, 20%);
   max-width: 100%;
+}
+
+.project-mockup {
+  width: 90%;
 }

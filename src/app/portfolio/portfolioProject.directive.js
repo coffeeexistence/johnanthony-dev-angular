@@ -26,7 +26,7 @@
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose:true,
-            fullscreen: useFullScreen,
+            fullscreen: true,
           })
           .then(function(answer) {
             $scope.status = 'You said the information was "' + answer + '".';

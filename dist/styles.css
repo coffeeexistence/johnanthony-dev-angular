@@ -3425,7 +3425,13 @@ h5 {
 
 .project-points {
   margin-right: 10px;
+  font-size: 1.1em;
+  color: #6a6a6a;
   max-width: 100%;
+}
+
+.project-mockup {
+  width: 90%;
 }
 
 @media (max-width: 1400px) {

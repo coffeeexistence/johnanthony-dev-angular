@@ -146,7 +146,10 @@ function PortfolioController($sce, $scope, $timeout){
         {title: 'Live Demo', url: 'http://johnanthony-dev.com/hart-demo/'}
       ],
 			icon: 'img/ng-icon.png',
-			banner: 'img/projects/mixcritic.jpg'
+
+			mockups: [
+				'img/mockups/hart-resized-1.png'
+			]
     },
     {
       name: 'ng-resource-manager',
@@ -195,7 +198,8 @@ function PortfolioController($sce, $scope, $timeout){
         {title: 'Github', url: 'https://github.com/coffeeexistence/mixcritic-angular'},
         {title: 'Live Demo', url: 'http://mix-critic.com/'}
       ],
-			icon: 'img/mixcritic-icon.png'
+			icon: 'img/mixcritic-icon.png',
+			banner: 'img/projects/mixcritic.jpg'
     },
 
     {

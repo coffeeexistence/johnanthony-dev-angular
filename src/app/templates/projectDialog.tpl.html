@@ -1,23 +1,31 @@
 <md-dialog aria-label="Mango (Fruit)"  ng-cloak>
   <form>
+    <div flex="99" class="project-dialog-header" layout="column" layout-align="center center">
+      <h2>{{ctrl.project.name}}</h2>
+      <!-- <div class="project-title header thin">{{ctrl.project.description}}</div> -->
+    </div>
+    <md-divider></md-divider>
     <md-dialog-content>
+
       <div class="md-dialog-content">
-        <img class="project-banner md-whiteframe-z1" ng-src="{{ctrl.project.banner}}" />
-        <h2>{{ctrl.project.description}}</h2>
+        <img class="project-banner md-whiteframe-z1" ng-if="ctrl.project.banner" ng-src="{{ctrl.project.banner}}" />
+
+        <div layout="row" layout-align="space-between space-betweeen" layout-wrap>
+          <div flex="35" layout="column" layout-align="center center">
+            <img flex class="project-mockup animated fadeInLeft" ng-repeat="mockup in ctrl.project.mockups" ng-src="{{mockup}}" />
+          </div>
+          <div flex="60" layout="column" layout-align="center center">
+            <div class="list-item fill" ng-repeat="point in ctrl.project.points" >
+              <div class="project-points">&bull;  {{point}}</div>
+            </div>
+          </div>
+
+        </div>
 
       </div>
     </md-dialog-content>
-    <md-dialog-actions layout="row">
-      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-        More on Wikipedia
-      </md-button>
-      <span flex></span>
-      <md-button ng-click="answer('not useful')">
-       Not Useful
-      </md-button>
-      <md-button ng-click="answer('useful')">
-        Useful
-      </md-button>
+    <md-dialog-actions class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center">
+      <a ng-repeat="link in ctrl.project.links" ng-href="{{link.url}}" target="_blank" class="text-grey">{{link.title}}</a>
     </md-dialog-actions>
   </form>
 </md-dialog>
