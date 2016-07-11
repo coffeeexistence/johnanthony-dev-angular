@@ -12,7 +12,12 @@
 
         <div layout="row" layout-align="center center" layout-wrap>
           <div flex-xs="99" flex-gt-xs="35" layout="column" layout-align="center center">
-            <img flex class="project-mockup animated fadeInLeft" ng-src="{{mockup.current}}" />
+
+            <img flex
+                 class="project-mockup animated"
+                 ng-src="{{mockup.current}}"
+                 ng-class="{fadeInLeft: mockup.show, fadeOut: !mockup.show, }"/>
+
           </div>
           <div flex-xs="99" flex-gt-xs="60" layout="column" layout-align="center center">
             <div class="list-item fill" ng-repeat="point in project.points" >

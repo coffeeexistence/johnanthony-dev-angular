@@ -20,39 +20,55 @@
         $scope.showAdvanced = function(ev) {
           var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
           $mdDialog.show({
-            controller: [ '$scope', '$mdDialog', '$interval',
-            function Ctrl($scope, $mdDialog, $interval) {
+            controller: [ '$scope', '$mdDialog', '$interval', '$timeout',
+            function Ctrl($scope, $mdDialog, $interval, $timeout) {
               var dialogCtrl = this;
               $scope.project = projectScope.project;
               console.log(this.project);
               $scope.closeDialog = function() {
+                $interval.cancel(mockupCycle);
                 $mdDialog.hide();
               };
 
               $scope.mockup = {
+                show: true,
                 current: undefined,
                 currentIndex: 0,
                 update: function() {
                   this.current = $scope.project.mockups[this.currentIndex];
                 },
                 next: function() {
+                  var differentImage = false;
                   console.log('old index:', this.currentIndex);
                   if(this.currentIndex < $scope.project.mockups.length-1) {
                     this.currentIndex++;
-                    this.update();
+                    differentImage = true;
                   } else {
                     if(this.currentIndex!=0) {
                       this.currentIndex = 0;
-                      this.update();
+                      differentImage = true;
                     }
                   }
+
+                  if(differentImage) {
+                    var vm = this;
+                    this.show = false;
+                    $timeout(function(){
+                      vm.update();
+                      vm.show = true;
+                    }, 700);
+                  }
+                  console.log('show is', this.show);
                   console.log('new index:', this.currentIndex);
+
                 }
               };
 
               if($scope.mockup) {
                 $scope.mockup.update();
-                $interval(function(){ $scope.mockup.next() }, 3000);
+                var mockupCycle = $interval(function(){
+                  $scope.mockup.next()
+                }, 4000);
               }
 
 
@@ -61,7 +77,7 @@
             templateUrl: 'templates/projectDialog.tpl.html',
             parent: angular.element(document.body),
             targetEvent: ev,
-            clickOutsideToClose:true,
+            clickOutsideToClose:false,
             fullscreen: true,
           });
           $scope.$watch(function() {
