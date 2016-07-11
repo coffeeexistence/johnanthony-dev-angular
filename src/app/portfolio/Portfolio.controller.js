@@ -1,6 +1,6 @@
 function PortfolioController($sce, $scope, $timeout){
 	var ctrl = this;
-  
+
   $scope.tabs = {
     tabs: [
       'Code',
@@ -12,7 +12,7 @@ function PortfolioController($sce, $scope, $timeout){
       this.currentIndex = index;
     },
     currentTitle: function() {
-      return this.tabs[this.currentIndex];  
+      return this.tabs[this.currentIndex];
     },
     selected: function(index) {
       return (this.currentIndex === index);
@@ -21,19 +21,19 @@ function PortfolioController($sce, $scope, $timeout){
       return (title === this.currentTitle());
     }
   }
-  
-  $scope.gists = { 
+
+  $scope.gists = {
     gists: [
       {
-        title: 'HackerRank: Largest Rectangle', 
+        title: 'HackerRank: Largest Rectangle',
         link: '',
         problem: 'There are N buildings in a certain two-dimensional landscape. Each building has a height given by H. If you join N adjacent buildings, they will form a solid rectangle of area A. Given N buildings, find the greatest such solid area formed by any number of consecutive buildings.',
         solution: 'Although the solution I ended up with was fairly simple, it took quite a few attempts to get it right.',
         id:'f34dc102b8e2dfdc9e39a0726fe9fe28'
       },
-      
+
       {
-        title: 'Tic Tac Toe A.I.', 
+        title: 'Tic Tac Toe A.I.',
         link: '',
         problem: 'Build a Tic Tac Toe A.I. that always wins or ends in draw.',
         solution: 'Solution description coming soon.',
@@ -46,17 +46,17 @@ function PortfolioController($sce, $scope, $timeout){
     },
     nextAvailable: function() { return (this.gists.length-1)>this.currentIndex; },
     previousAvailable: function() { return this.currentIndex>0; },
-    next: function(){ 
-      if (this.nextAvailable()) { 
-        this.currentIndex++; 
+    next: function(){
+      if (this.nextAvailable()) {
+        this.currentIndex++;
         this.compile();
-      } 
+      }
     },
-    previous: function(){ 
-      if (this.previousAvailable()) { 
-        this.currentIndex--; 
+    previous: function(){
+      if (this.previousAvailable()) {
+        this.currentIndex--;
         this.compile();
-      } 
+      }
     },
     compile: function() {
       $('#gist-container').empty();
@@ -64,14 +64,14 @@ function PortfolioController($sce, $scope, $timeout){
       angular.element('[data-gist-id]').gist();
     }
   };
-  
+
   $timeout(function(){
     $scope.gists.compile();
   }, 1000);
-  
-  
+
+
   console.log($scope.gists.current());
-  
+
 
   ctrl.skills = [
     {
@@ -111,7 +111,7 @@ function PortfolioController($sce, $scope, $timeout){
         }
       ]
     },
-    
+
     {
       title: 'HTML & CSS',
       subSkills: [
@@ -145,7 +145,8 @@ function PortfolioController($sce, $scope, $timeout){
 				{title: 'GitHub', url: 'https://github.com/Hart-Challenge/FrontEnd_Settings_Demo'},
         {title: 'Live Demo', url: 'http://johnanthony-dev.com/hart-demo/'}
       ],
-			icon: 'img/ng-icon.png'
+			icon: 'img/ng-icon.png',
+			banner: 'img/projects/mixcritic.jpg'
     },
     {
       name: 'ng-resource-manager',
@@ -196,7 +197,7 @@ function PortfolioController($sce, $scope, $timeout){
       ],
 			icon: 'img/mixcritic-icon.png'
     },
-    
+
     {
       name: 'WhoIsHiring',
       description: "Pure AngularJS app for searching through whoishiring's monthly submissions on HackerNews.",
@@ -207,7 +208,7 @@ function PortfolioController($sce, $scope, $timeout){
       ],
 			icon: 'img/jobsearch-icon.png'
     },
-    
+
 		{
       name: 'Tic Tac Toe AI',
       description: 'Always ends in a Win or Draw, if maximum difficulty is selected.',
@@ -249,7 +250,7 @@ function PortfolioController($sce, $scope, $timeout){
       location: 'Remote',
       title: 'Front End Web Developer',
       dateString: 'May 2016 - Current',
-      points: [] 
+      points: []
     },
     {
       name: 'Autocross Performance & Muffler',

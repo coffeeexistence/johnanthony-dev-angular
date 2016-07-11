@@ -10,21 +10,10 @@ body {
   height:100%;
   width: 100%;
   max-width: 100%;
-  overflow-x:hidden;  
+  overflow-x:hidden;
 }
 
-.project-icon {
-  width: 70%;
-  min-width: 45px;
-  max-width: 80px;
-  margin-right: auto;
-}
 
-.project-icon-container {
-  min-width: 60px;
-  width:100%;
-  padding: 3em;
-}
 
 
 .fill {
@@ -98,25 +87,6 @@ a {
   outline: none;
 }
 
-.project-container {
-  padding-top: 7px;
-  margin: 3em 1em 1em 9px;
-  border-radius: 5px;
-}
-
-.project-container.expanded {
-  border-width: 1px;
-  border-style: solid;
-  border-color: $border-color;
-}
-
-.project-title {
-  margin-top: 1px;
-}
-
-.project-extra-content {
-  padding: 1em;
-}
 
 .list-item {
   padding: 10px 10px 20px 10px;
@@ -127,7 +97,7 @@ a {
   margin-left: 1em;
   padding-bottom: 0.7em;
   width: 100%;
-} 
+}
 
 .sub-skill {
   margin-left: 1em;
@@ -156,10 +126,7 @@ a {
   margin-right: auto;
 }
 
-.project-points {
-  margin-right: 10px;
-  max-width: 100%;
-}
+
 
 .group:before,
 .group:after {
@@ -234,7 +201,7 @@ h5 {
 .portfolio-header {
   background-color: white;
   background-image: url('img/marble.jpg');
-  background-position: center; 
+  background-position: center;
   background-repeat: no-repeat;
   overflow:hidden;
   color: grey;
@@ -294,51 +261,3 @@ h5 {
 .gist-description {
   min-height: 700px;
 }
-
-
-@media (max-width: 1400px) {
-  .portfolio-header {
-    font-size: 0.9em;
-  }
-}
-
-
-@media (max-width: 960px) {
-  .portfolio-header {
-    margin: 1.4em;
-  }
-}
-
-@media (max-width: 400px) {
-  #me {
-    width: 100%;
-  }
-  .tab {
-    font-size: 14px;
-  }
-  .contact-item {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-
-  .portfolio-header {
-    font-size: 0.8em;
-  }
-
-  .portfolio-header {
-    margin: 0px;
-    border-radius: 0px;
-  }
-  .skill {
-    width: 30%;
-  }
-
-  .project-container {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-
-}
-

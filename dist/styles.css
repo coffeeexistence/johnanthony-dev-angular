@@ -3150,19 +3150,6 @@ body {
   overflow-x: hidden;
 }
 
-.project-icon {
-  width: 70%;
-  min-width: 45px;
-  max-width: 80px;
-  margin-right: auto;
-}
-
-.project-icon-container {
-  min-width: 60px;
-  width: 100%;
-  padding: 3em;
-}
-
 .fill {
   width: 100%;
 }
@@ -3230,26 +3217,6 @@ a {
   outline: none;
 }
 
-.project-container {
-  padding-top: 7px;
-  margin: 3em 1em 1em 9px;
-  border-radius: 5px;
-}
-
-.project-container.expanded {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #F4F4F4;
-}
-
-.project-title {
-  margin-top: 1px;
-}
-
-.project-extra-content {
-  padding: 1em;
-}
-
 .list-item {
   padding: 10px 10px 20px 10px;
   display: block;
@@ -3285,11 +3252,6 @@ a {
 .show-more {
   margin-left: auto;
   margin-right: auto;
-}
-
-.project-points {
-  margin-right: 10px;
-  max-width: 100%;
 }
 
 .group:before,
@@ -3421,6 +3383,49 @@ h5 {
 
 .gist-description {
   min-height: 700px;
+}
+
+.project-icon {
+  width: 70%;
+  min-width: 45px;
+  max-width: 80px;
+  margin-right: auto;
+}
+
+.project-banner {
+  width: 100%;
+  min-height: 300px;
+}
+
+.project-icon-container {
+  min-width: 60px;
+  width: 100%;
+  padding: 3em;
+}
+
+.project-container {
+  padding-top: 7px;
+  margin: 3em 1em 1em 9px;
+  border-radius: 5px;
+}
+
+.project-container.expanded {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #F4F4F4;
+}
+
+.project-title {
+  margin-top: 1px;
+}
+
+.project-extra-content {
+  padding: 1em;
+}
+
+.project-points {
+  margin-right: 10px;
+  max-width: 100%;
 }
 
 @media (max-width: 1400px) {

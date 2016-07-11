@@ -1,44 +1,44 @@
-<div class="animated fadeIn" style="height: 100%; width:100%" >
+<md-content class="animated fadeIn" style="height: 100%; width:100%" >
   <div layout="row" flex="99" class="" layout-align="center center">
-    <div class="portfolio-header md-whiteframe-z1 clearfix" 
+    <div class="portfolio-header md-whiteframe-z1 clearfix"
     layout="row"
-    layout-align="center center"  
+    layout-align="center center"
     layout-wrap
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
-    
+
       <div flex="99" flex-gt-sm="99" class="secondary-grey-lighten-1 name">
         John <span class="secondary-grey-lighten-4">Anthony</span> Rivera<br>
         <what-am-i></what-am-i>
       </div>
       <img flex="99" flex-gt-sm="99" href id="me" src="img/me2.png">
     </div>
-  </div> 
-  
-  
-  
-  
+  </div>
+
+
+
+
   <div layout="row" flex="99" layout-align="center center">
     <div class="tab-selector"
     layout="row" layout-align="space-around center"
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
-    
-      <div ng-repeat="tab in tabs.tabs track by $index" class="tab" 
+
+      <div ng-repeat="tab in tabs.tabs track by $index" class="tab"
       ng-class="{'tab-selected': tabs.selected($index), 'tab-unselected': !tabs.selected($index)}">
         <a flex href ng-click="tabs.set($index)">{{tabs.tabs[$index]}}</a>
       </div>
-      
-      
-      
+
+
+
     </div>
   </div>
-  
-  
-  <div ng-show="tabs.on('Contact')" layout="column" layout-align="center center" flex="99"> 
+
+
+  <div ng-show="tabs.on('Contact')" layout="column" layout-align="center center" flex="99">
 
     <div id="contacts-container" class="animated fadeInRight"
     layout="column" layout-align="start start"
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
-      
+
       <div class="contact-item" layout="row" layout-align="center center">
         <i class="material-icons md-48">phone_iphone</i>
         <div>951-553-4461</div>
@@ -55,46 +55,46 @@
       </div>
 
     </div>
-      
+
   </div>
-  
+
   <div ng-show="tabs.on('Code')" layout="row" layout-align="center center" layout-padding>
     <div layout="column" flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
-        
+
         <div layout="row" layout-align="center center">
           <div flex> <hr class="gist-title-hr"></div>
           <h2 style="margin: 1em; padding-left: 0px;">The Gist Of It</h2>
-          <div flex><hr class="gist-title-hr"></div> 
+          <div flex><hr class="gist-title-hr"></div>
         </div>
-        
+
 
         <div class="gist-description" layout="row" layout-align="start start" layout-wrap>
           <div flex="99" flex-gt-sm="35">
-            
+
             <div layout="row" class="gist-nav" layout-align="start start" style="margin-bottom: 1em;">
               <i class="material-icons md-36" ng-click="gists.previous();">chevron_left</i>
               <i class="material-icons md-36" ng-click="gists.next();">chevron_right</i>
             </div>
-            
+
             <div class="gist-title">{{gists.current().title}}</div>
             <h3 class="x-thin">Problem</h3>
             <p class="secondary-grey-lighten-2 x-thin">{{gists.current().problem}}</p>
             <h3 class="x-thin">Solution</h3>
             <p class="secondary-grey-lighten-1 x-thin">{{gists.current().solution}}</p>
           </div>
-          
+
           <div id="gist-container" flex="99" flex-gt-sm="65" ></div>
-          
+
         </div>
-        
+
         <div layout="row" layout-align="center center">
           <div flex><hr class="gist-title-hr"></div>
         </div>
-        
+
       </div>
 
     </div>
-  
+
 
   <div ng-show="tabs.on('Projects & Experience')" layout="row" class="portfolio-section" flex="99"  layout-align="space-around start">
 
@@ -144,9 +144,9 @@
           </div>
         </div>
       </div>
-      
-      
+
+
     </div>
   </div>
-  
-</div>
+
+</md-content>
