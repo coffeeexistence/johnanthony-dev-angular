@@ -15,23 +15,25 @@
 					}
 				};
 
+        var projectScope = $scope;
+
         $scope.showAdvanced = function(ev) {
           var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
           $mdDialog.show({
-            controller: function Ctrl() {
-              this.project = $scope.project;
-            },
+            controller: [ '$scope', '$mdDialog',
+            function Ctrl($scope, $mdDialog) {
+              this.project = projectScope.project;
+              console.log(this.project);
+              $scope.closeDialog = function() {
+                $mdDialog.hide();
+              };
+            }],
             controllerAs: 'ctrl',
             templateUrl: 'templates/projectDialog.tpl.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose:true,
             fullscreen: true,
-          })
-          .then(function(answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
-          }, function() {
-            $scope.status = 'You cancelled the dialog.';
           });
           $scope.$watch(function() {
             return $mdMedia('xs') || $mdMedia('sm');
