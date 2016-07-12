@@ -8,18 +8,19 @@
     <md-dialog-content >
 
       <div class="md-dialog-content">
-        <img class="project-banner md-whiteframe-z1" ng-if="project.banner" ng-src="{{project.banner}}" />
+
 
         <div layout="row" layout-align="center center" layout-wrap>
+
+          <img class="project-banner md-whiteframe-z1" ng-if="project.banner"  ng-src="{{project.banner}}" />
+
           <div class="mockup-container" flex-xs="99" flex-gt-xs="35" layout="column" layout-align="center center" ng-if="project.mockups">
-
-            <img flex
-                 class="project-mockup animated"
-                 ng-src="{{mockup.current}}"
-                 ng-class="{fadeInLeft: mockup.show, fadeOut: !mockup.show, }"/>
-
+            <div layout="row" layout-align="center center">
+              <img class="project-mockup animated" ng-src="{{mockup.current}}" ng-class="{fadeInLeft: mockup.show, fadeOut: !mockup.show}"/>
+            </div>
           </div>
-          <div class="project-points" flex-xs="99" flex-gt-xs="bulletPointWidth" layout="column" layout-align="start start">
+
+          <div class="project-points" flex-xs="99" flex-gt-xs="bulletPointWidth" layout="column" layout-align="center center">
             <div class="list-item" ng-repeat="point in project.points" >
               <div class="project-point">&bull;  {{point}}</div>
             </div>
@@ -31,9 +32,11 @@
 
 
       </div>
+      <md-divider></md-divider>
     </md-dialog-content>
-    <md-dialog-actions class="project-extra-content" layout="row" layout-xs="column" layout-align="space-around center">
-      <a ng-repeat="link in project.links" ng-href="{{link.url}}" target="_blank" class="text-grey">{{link.title}}</a>
+
+    <md-dialog-actions class="project-extra-content" layout="row" layout-wrap layout-align="space-around center">
+      <a ng-repeat="link in project.links" ng-href="{{link.url}}" target="_blank" class="project-link text-grey">{{link.title}}</a>
       <ui-button ng-click="closeDialog()">Close</ui-button>
     </md-dialog-actions>
   </form>

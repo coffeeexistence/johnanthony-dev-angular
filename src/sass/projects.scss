@@ -7,6 +7,8 @@
 
 .project-banner {
   width: 100%;
+  margin-bottom: 1em;
+  
 }
 
 .project-icon-container {
@@ -19,6 +21,10 @@
   padding-top: 7px;
   margin: 3em 1em 1em 9px;
   border-radius: 5px;
+}
+
+.project-link {
+  padding: 10px;
 }
 
 .project-container.expanded {
@@ -36,8 +42,8 @@
   padding: 1em;
 }
 
-.project-point {
-  margin-top: 2em;
+.project-points {
+  margin-top: 1em;
 }
 
 .project-point {
@@ -50,6 +56,8 @@
 }
 
 .project-mockup {
+  min-width: 200px;
   width: 90%;
+  height: auto;
   max-width: 350px;
 }

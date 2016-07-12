@@ -67,7 +67,7 @@
 
               var bulletPointWidth = function() {
                 if ($scope.project.mockups){
-                  return 60;
+                  return 55;
                 } else {
                   return 99;
                 }

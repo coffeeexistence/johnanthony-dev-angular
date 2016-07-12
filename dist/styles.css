@@ -3394,6 +3394,7 @@ h5 {
 
 .project-banner {
   width: 100%;
+  margin-bottom: 1em;
 }
 
 .project-icon-container {
@@ -3406,6 +3407,10 @@ h5 {
   padding-top: 7px;
   margin: 3em 1em 1em 9px;
   border-radius: 5px;
+}
+
+.project-link {
+  padding: 10px;
 }
 
 .project-container.expanded {
@@ -3422,8 +3427,8 @@ h5 {
   padding: 1em;
 }
 
-.project-point {
-  margin-top: 2em;
+.project-points {
+  margin-top: 1em;
 }
 
 .project-point {
@@ -3436,13 +3441,20 @@ h5 {
 }
 
 .project-mockup {
+  min-width: 200px;
   width: 90%;
+  height: auto;
   max-width: 350px;
 }
 
 @media (max-width: 1400px) {
   .portfolio-header {
     font-size: 0.9em;
+  }
+
+  .project-mockup {
+    min-width: 200px;
+    width: 65%;
   }
 }
 @media (max-width: 960px) {
