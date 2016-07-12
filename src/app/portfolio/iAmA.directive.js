@@ -39,7 +39,7 @@
             var charStatus = 'adding';
 
             ctrl.nextChar = function(){
-                if (charStatus=='adding'){
+                if (charStatus==='adding'){
                     var doneAdding = !(addChar());
                     if (doneAdding) {
                         charStatus = 'subtracting';

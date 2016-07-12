@@ -8,7 +8,7 @@ function gameSlot() {
 		controller: ['$sce', '$scope', function($sce, $scope){
 			var ctrl =  this;
 			$scope.show = false;
-      replace: true,
+			
 			ctrl.load = function(index){
 				//$scope.slot = slot;
         $scope.index = index;

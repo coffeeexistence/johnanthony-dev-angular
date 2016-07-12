@@ -12,7 +12,7 @@ function TicTacController($sce, $scope, TicTacApi){
 		});
 		var turn = turnCount % 2;
 
-		if (turn == 0) { return ctrl.players[ctrl.players.order[0]] }
+		if (turn === 0) { return ctrl.players[ctrl.players.order[0]] }
 		else { return ctrl.players[ctrl.players.order[1]] }
 	};
 
@@ -63,7 +63,7 @@ function TicTacController($sce, $scope, TicTacApi){
 			status.over = true;
 			if($scope.game.info.winner === $scope.game.p1_token) { status.type = 'won' }
 			else { status.type = 'lost' }
-		} else if ($scope.game.info.draw == true) {
+		} else if ($scope.game.info.draw === true) {
 			status.over = true;
 			status.type = 'draw';
 		}
