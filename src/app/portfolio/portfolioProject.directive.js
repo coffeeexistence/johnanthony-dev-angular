@@ -6,14 +6,6 @@
   		},
   		controller: ['$scope', '$sce', '$mdMedia', '$mdDialog', function($scope, $sce, $mdMedia, $mdDialog){
         var ctrl = this;
-				$scope.expand = {
-					state: false,
-					text: 'MORE',
-					toggle: function() {
-						this.state = !this.state;
-						this.text = (this.state ? "LESS" : "MORE")
-					}
-				};
 
         var projectScope = $scope;
 

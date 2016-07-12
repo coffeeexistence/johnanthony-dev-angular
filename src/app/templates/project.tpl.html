@@ -1,7 +1,4 @@
-<div
-  ng-class="{'expanded md-whiteframe-z1': expand.state}"
-  class="project-container group">
-
+<div class="project-container group">
 
   <div class="slight-indent" layout="row" layout-align-xs="center center" layout-align="start center" layout-wrap>
 
@@ -23,27 +20,15 @@
          layout-align="end start"
          style="height: 100%;">
       <div class="show-more">
-        <ui-button ng-click="showAdvanced($event)" class="md-raised text-grey">{{expand.text}}</ui-button>
+        <ui-button ng-click="showAdvanced($event)" class="md-raised text-grey">MORE</ui-button>
       </div>
 
     </div>
 
   </div>
 
-
-
   <div layout="column" ng-show="expand.state" layout-align="center space-around">
-
-    
-
     <md-divider></md-divider>
-
-
-
-    <md-divider ng-if="project.element"></md-divider>
-
-    <div ng-if="project.element" bind-html-compile="project.element">{{project.element}}</div>
-
   </div>
 
 </div>
