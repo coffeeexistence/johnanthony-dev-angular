@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         options: {                       // Target options
           style: 'expanded'
         },
-        files: {                         
+        files: {
           'build/app.css': 'build/app.scss'
         }
       }
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
           "build/app.css"
         ],
           dest: "dist/styles.css"
-        },
+        }
     },
 
 
@@ -64,7 +64,6 @@ module.exports = function(grunt) {
           "vendor/angular-sanitize/angular-sanitize.min.js",
           'vendor/angular-bind-html-compile/angular-bind-html-compile.min.js',
           'vendor/angular-gist-embed/dist/angular-gist-embed.min.js'
-          
         ],
         dest: 'build/vendor.min.js'
       },
@@ -75,7 +74,7 @@ module.exports = function(grunt) {
       bundle: {
         src: [
           'build/vendor.min.js',
-          'build/app_src.min.js',
+          'build/app_src.min.js'
         ],
         dest: 'dist/app.min.js'
       },
@@ -83,7 +82,7 @@ module.exports = function(grunt) {
       bundle_dev: {
         src: [
           'build/vendor.min.js',
-          'build/app_src.js',
+          'build/app_src.js'
         ],
         dest: 'dist/app.min.js'
       }
