@@ -36,15 +36,21 @@
   padding: 1em;
 }
 
-.project-points {
+.project-point {
+  margin-top: 2em;
+}
+
+.project-point {
   margin-right: 10px;
   font-size: 1.1em;
   color: lighten($primary-text-color, 20%);
   max-width: 100%;
+  text-align: left;
+  width: 100%;
 }
 
 .project-mockup {
-  padding: 1em;
+  padding: 2em;
   min-width: 90%;
-  max-width: 300px;
+  max-width: 350px;
 }

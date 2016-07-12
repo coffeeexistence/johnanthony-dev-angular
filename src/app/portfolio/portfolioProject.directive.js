@@ -35,7 +35,9 @@
                 current: undefined,
                 currentIndex: 0,
                 update: function() {
-                  this.current = $scope.project.mockups[this.currentIndex];
+                  if($scope.project.mockups && this.currentIndex < $scope.project.mockups.length) {
+                    this.current = $scope.project.mockups[this.currentIndex];
+                  }
                 },
                 next: function() {
                   var differentImage = false;
@@ -64,12 +66,22 @@
                 }
               };
 
-              if($scope.mockup) {
+              if($scope.project.mockups) {
                 $scope.mockup.update();
                 var mockupCycle = $interval(function(){
                   $scope.mockup.next()
                 }, 4000);
               }
+
+              var bulletPointWidth = function() {
+                if ($scope.project.mockups){
+                  return 60;
+                } else {
+                  return 99;
+                }
+              };
+
+              $scope.bulletPointWidth = bulletPointWidth();
 
 
             }],

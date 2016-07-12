@@ -11,7 +11,7 @@
         <img class="project-banner md-whiteframe-z1" ng-if="project.banner" ng-src="{{project.banner}}" />
 
         <div layout="row" layout-align="center center" layout-wrap>
-          <div flex-xs="99" flex-gt-xs="35" layout="column" layout-align="center center">
+          <div flex-xs="99" flex-gt-xs="35" layout="column" layout-align="center center" ng-if="project.mockups">
 
             <img flex
                  class="project-mockup animated"
@@ -19,13 +19,16 @@
                  ng-class="{fadeInLeft: mockup.show, fadeOut: !mockup.show, }"/>
 
           </div>
-          <div flex-xs="99" flex-gt-xs="60" layout="column" layout-align="center center">
-            <div class="list-item fill" ng-repeat="point in project.points" >
-              <div class="project-points">&bull;  {{point}}</div>
+          <div class="project-points" flex-xs="99" flex-gt-xs="bulletPointWidth" layout="column" layout-align="start start">
+            <div class="list-item" ng-repeat="point in project.points" >
+              <div class="project-point">&bull;  {{point}}</div>
             </div>
+            <div ng-if="project.element" bind-html-compile="project.element">{{project.element}}</div>
           </div>
 
         </div>
+
+
 
       </div>
     </md-dialog-content>

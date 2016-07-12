@@ -135,11 +135,11 @@ function PortfolioController($sce, $scope, $timeout){
       name: 'Responsive Settings Page',
       description: 'Wireframe -> Responsive Settings page in > 24 hours.',
       points: [
+				"Fully responsive",
+				"Compatible with IE11, Safari, and Chrome",
 				"Created custom component directives with css and angular",
         "Achieved layout with Angular Material grid system",
-        "Fully responsive",
-        "Used SASS to track simple color palette",
-        "Compatible with IE11, Safari, and Chrome"
+        "Used SASS to track simple color palette"
       ],
       links: [
 				{title: 'GitHub', url: 'https://github.com/Hart-Challenge/FrontEnd_Settings_Demo'},
@@ -157,30 +157,37 @@ function PortfolioController($sce, $scope, $timeout){
       description: 'Module which reduces requests, loading-time, and backend overhead.',
       points: [
 				"Caches requested resources for future use.",
-				"Aggregates requests made within a certain timeframe into one large batch request.",
-				"Utilizing ResourceManager in MixCritic for user:show reduced requests on front page from 23 to 1, and reduced load times on live production server by a noticeable margin.",
-        "ResourceManger.create(resourceName, httpBatchRequest) factory returns a manager object specifically for the requested resource",
+				"Aggregates requests made within a certain timeframe into one large batch request",
+				"Reduced requests on front page from 23 to 1",
+				"Reduced load times on live production server by a noticeable margin",
+        "ResourceManger.create factory returns a manager object specifically for the requested resource",
         "Currently available through Bower"
       ],
       links: [
 				{title: 'GitHub', url: 'https://github.com/coffeeexistence/ng-resource-manager'},
       ],
-			icon: 'img/ng-icon.png'
+			icon: 'img/ng-icon.png',
+			banner: 'img/projects/ngrm.jpg',
+			mockups: [
+				'img/mockups/ngrm-resized-1.png'
+			]
     },
 		{
       name: 'Surak',
       description: 'RubyGem for creating, serving, and compiling production-ready angular apps with Bower and Grunt.',
       points: [
-				"Creates ready-to-go projects preloaded with angular and angular-material with 'surak new project-name'",
-				"Makes working with Bower & Grunt easier",
-				"Compiles assets upon file modification & runs HTTP server in parallel"
+				"Scaffolds ready-to-go angular projects 'surak new project-name'",
+				"Recompiles assets upon modification & runs HTTP server in parallel",
+				"Works in any Unix enviroment",
+				"Named after the great Vulcan philosopher, Surak"
       ],
       links: [
 				{title: 'Documentation', url: 'http://johnanthony-dev.com/surak/'},
 				{title: 'Github', url: 'https://github.com/coffeeexistence/surak'},
         {title: 'RubyGem', url: 'https://rubygems.org/gems/surak'}
       ],
-			icon: 'img/gem-icon.png'
+			icon: 'img/gem-icon.png',
+			banner: 'img/projects/surak.jpg'
     },
 
 		{
@@ -206,12 +213,20 @@ function PortfolioController($sce, $scope, $timeout){
     {
       name: 'WhoIsHiring',
       description: "Pure AngularJS app for searching through whoishiring's monthly submissions on HackerNews.",
-      points: [],
+      points: [
+				"Searches through whoishiring's monthly submissions",
+				"Uses HackerNews' API",
+				"Queries job postings for keywords"
+			],
       links: [
 				{title: 'Site', url: 'http://johnanthony-dev.com/job-search/'},
 				{title: 'Github', url: 'https://github.com/coffeeexistence/who-is-hiring'}
       ],
-			icon: 'img/jobsearch-icon.png'
+			icon: 'img/jobsearch-icon.png',
+			mockups: [
+				'img/mockups/job-search-resized-1.png',
+				'img/mockups/job-search-resized-2.png'
+			]
     },
 
 		{
