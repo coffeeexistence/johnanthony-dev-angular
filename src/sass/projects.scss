@@ -7,7 +7,6 @@
 
 .project-banner {
   width: 100%;
-  min-height: 300px;
 }
 
 .project-icon-container {
@@ -27,6 +26,7 @@
   border-style: solid;
   border-color: $border-color;
 }
+
 
 .project-title {
   margin-top: 1px;
@@ -50,7 +50,6 @@
 }
 
 .project-mockup {
-  padding: 2em;
-  min-width: 90%;
+  width: 90%;
   max-width: 350px;
 }

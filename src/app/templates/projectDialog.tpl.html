@@ -5,13 +5,13 @@
       <!-- <div class="project-title header thin">{{project.description}}</div> -->
     </div>
     <md-divider></md-divider>
-    <md-dialog-content>
+    <md-dialog-content >
 
       <div class="md-dialog-content">
         <img class="project-banner md-whiteframe-z1" ng-if="project.banner" ng-src="{{project.banner}}" />
 
         <div layout="row" layout-align="center center" layout-wrap>
-          <div flex-xs="99" flex-gt-xs="35" layout="column" layout-align="center center" ng-if="project.mockups">
+          <div class="mockup-container" flex-xs="99" flex-gt-xs="35" layout="column" layout-align="center center" ng-if="project.mockups">
 
             <img flex
                  class="project-mockup animated"
