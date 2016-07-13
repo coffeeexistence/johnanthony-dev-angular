@@ -40,17 +40,17 @@
     flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
 
       <div class="contact-item" layout="row" layout-align="center center">
-        <i class="material-icons md-48">phone_iphone</i>
+        <md-icon class="material-icons md-48">phone_iphone</md-icon>
         <div>951-553-4461</div>
       </div>
 
       <div class="contact-item" layout="row" layout-align="center center">
-        <i class="material-icons md-48">mail_outline</i>
+        <md-icon class="material-icons md-48">mail_outline</md-icon>
         <div>johnanthony.dev@gmail.com</div>
       </div>
 
       <div class="contact-item" layout="row" layout-align="center center">
-        <i class="material-icons md-48">code</i>
+        <md-icon class="material-icons md-48">code</md-icon>
         <div>Github: coffeeexistence</div>
       </div>
 
@@ -72,8 +72,8 @@
           <div flex="99" flex-gt-sm="35">
 
             <div layout="row" class="gist-nav" layout-align="start start" style="margin-bottom: 1em;">
-              <i class="material-icons md-36" ng-click="gists.previous();">chevron_left</i>
-              <i class="material-icons md-36" ng-click="gists.next();">chevron_right</i>
+              <a href ng-click="gists.previous();"><md-icon class="material-icons md-36">chevron_left</md-icon></a>
+              <a href ng-click="gists.next();"><md-icon class="material-icons md-36">chevron_right</md-icon></a>
             </div>
 
             <div class="gist-title">{{gists.current().title}}</div>
