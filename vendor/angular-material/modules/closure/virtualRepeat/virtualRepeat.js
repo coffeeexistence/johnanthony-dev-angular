@@ -2,11 +2,11 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.0-rc4-master-73741db
+ * v1.1.0-rc.5-master-1663341
  */
-goog.provide('ng.material.components.virtualRepeat');
-goog.require('ng.material.components.showHide');
-goog.require('ng.material.core');
+goog.provide('ngmaterial.components.virtualRepeat');
+goog.require('ngmaterial.components.showHide');
+goog.require('ngmaterial.core');
 /**
  * @ngdoc module
  * @name material.components.virtualRepeat
@@ -624,6 +624,10 @@ VirtualRepeatController.prototype.repeatListExpression_ = function(scope) {
 VirtualRepeatController.prototype.containerUpdated = function() {
   // If itemSize is unknown, attempt to measure it.
   if (!this.itemSize) {
+    // Make sure to clean up watchers if we can (see #8178)
+    if(this.unwatchItemSize_ && this.unwatchItemSize_ !== angular.noop){
+      this.unwatchItemSize_();
+    }
     this.unwatchItemSize_ = this.$scope.$watchCollection(
         this.repeatListExpression,
         angular.bind(this, function(items) {
@@ -691,10 +695,12 @@ VirtualRepeatController.prototype.virtualRepeatUpdate_ = function(items, oldItem
   var itemsLength = items && items.length || 0;
   var lengthChanged = false;
 
-  // If the number of items shrank, scroll up to the top.
+  // If the number of items shrank
   if (this.items && itemsLength < this.items.length && this.container.getScrollOffset() !== 0) {
     this.items = items;
+    var previousScrollOffset = this.container.getScrollOffset();
     this.container.resetScroll();
+    this.container.scrollTo(previousScrollOffset);
     return;
   }
 
@@ -942,4 +948,4 @@ function abstractMethod() {
   throw Error('Non-overridden abstract method called.');
 }
 
-ng.material.components.virtualRepeat = angular.module("material.components.virtualRepeat");
+ngmaterial.components.virtualRepeat = angular.module("material.components.virtualRepeat");

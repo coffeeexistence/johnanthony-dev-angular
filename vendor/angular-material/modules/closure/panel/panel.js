@@ -2,11 +2,11 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.0-rc4-master-73741db
+ * v1.1.0-rc.5-master-1663341
  */
-goog.provide('ng.material.components.panel');
-goog.require('ng.material.components.backdrop');
-goog.require('ng.material.core');
+goog.provide('ngmaterial.components.panel');
+goog.require('ngmaterial.components.backdrop');
+goog.require('ngmaterial.core');
 /**
  * @ngdoc module
  * @name material.components.panel
@@ -155,7 +155,8 @@ angular
  *     panel is removed from the DOM.
  *   - `origin` - `{(string|!angular.JQLite|!Element)=}`: The element to
  *     focus on when the panel closes. This is commonly the element which triggered
- *     the opening of the panel.
+ *     the opening of the panel. If you do not use `origin`, you need to control
+ *     the focus manually.
  *
  * TODO(ErinCoughlan): Add the following config options.
  *   - `groupName` - `{string=}`: Name of panel groups. This group name is
@@ -253,7 +254,9 @@ angular
  * @ngdoc method
  * @name MdPanelRef#close
  * @description
- * Hides and detaches the panel.
+ * Hides and detaches the panel. Note that this will **not** destroy the panel. If you
+ * don't intend on using the panel again, call the {@link MdPanelRef#destroy destroy} method
+ * afterwards.
  *
  * @returns {!angular.$q.Promise} A promise that is resolved when the panel is
  * closed.
@@ -643,16 +646,16 @@ function MdPanelService($rootElement, $rootScope, $injector, $window) {
   this._config = {};
 
   /** @private @const */
-  this._$rootScope = $rootScope;
+  this._$rootElement = $rootElement;
 
   /** @private @const */
-  this._$rootElement = $rootElement;
+  this._$rootScope = $rootScope;
 
   /** @private @const */
   this._$injector = $injector;
 
-  /** @private @const {!angular.$window} */
-  this._$window = $injector.get('$window');
+  /** @private @const */
+  this._$window = $window;
 
 
   /**
@@ -747,9 +750,11 @@ MdPanelService.prototype.newPanelAnimation = function() {
 MdPanelService.prototype._wrapTemplate = function(origTemplate) {
   var template = origTemplate || '';
 
+  // The panel should be initially rendered offscreen so we can calculate
+  // height and width for positioning.
   return '' +
       '<div class="md-panel-outer-wrapper">' +
-      '  <div class="md-panel">' + template + '</div>' +
+      '  <div class="md-panel" style="left: -9999px;">' + template + '</div>' +
       '</div>';
 };
 
@@ -970,6 +975,7 @@ MdPanelRef.prototype.detach = function() {
  * Destroys the panel. The Panel cannot be opened again after this.
  */
 MdPanelRef.prototype.destroy = function() {
+  this._config.scope.$destroy();
   this._config.locals = null;
 };
 
@@ -1126,7 +1132,10 @@ MdPanelRef.prototype._createPanel = function() {
 
           if (self._config['disableParentScroll']) {
             self._restoreScroll = self._$mdUtil.disableScrollAround(
-                null, self._panelContainer);
+              null,
+              self._panelContainer,
+              { disableScrollMask: true }
+            );
           }
 
           self._panelEl = angular.element(
@@ -1146,7 +1155,6 @@ MdPanelRef.prototype._createPanel = function() {
 
           self._configureTrapFocus();
           self._addStyles().then(function() {
-            self._panelContainer.addClass(MD_PANEL_HIDDEN);
             resolve(self);
           }, reject);
         }, reject);
@@ -1165,15 +1173,22 @@ MdPanelRef.prototype._addStyles = function() {
     self._panelContainer.css('z-index', self._config['zIndex']);
     self._panelEl.css('z-index', self._config['zIndex'] + 1);
 
+    var hideAndResolve = function() {
+      // Remove left: -9999px and add hidden class.
+      self._panelEl.css('left', '');
+      self._panelContainer.addClass(MD_PANEL_HIDDEN);
+      resolve(self);
+    };
+
     if (self._config['fullscreen']) {
       self._panelEl.addClass('_md-panel-fullscreen');
-      resolve(self);
+      hideAndResolve();
       return; // Don't setup positioning.
     }
 
     var positionConfig = self._config['position'];
     if (!positionConfig) {
-      resolve(self);
+      hideAndResolve();
       return; // Don't setup positioning.
     }
 
@@ -1181,7 +1196,7 @@ MdPanelRef.prototype._addStyles = function() {
     // correctly. This is necessary so that the panel will have a defined height
     // and width.
     self._$rootScope['$$postDigest'](function() {
-      self._updatePosition();
+      self._updatePosition(true);
       resolve(self);
     });
   });
@@ -1190,13 +1205,20 @@ MdPanelRef.prototype._addStyles = function() {
 
 /**
  * Calculates and updates the position of the panel.
+ * @param {boolean=} opt_init
  * @private
  */
-MdPanelRef.prototype._updatePosition = function() {
+MdPanelRef.prototype._updatePosition = function(opt_init) {
   var positionConfig = this._config['position'];
 
   if (positionConfig) {
     positionConfig._setPanelPosition(this._panelEl);
+
+    // Hide the panel now that position is known.
+    if (opt_init) {
+      this._panelContainer.addClass(MD_PANEL_HIDDEN);
+    }
+
     this._panelEl.css('top', positionConfig.getTop());
     this._panelEl.css('bottom', positionConfig.getBottom());
     this._panelEl.css('left', positionConfig.getLeft());
@@ -1216,7 +1238,7 @@ MdPanelRef.prototype._updatePosition = function() {
 MdPanelRef.prototype._focusOnOpen = function() {
   if (this._config['focusOnOpen']) {
     // Wait for the template to finish rendering to guarantee md-autofocus has
-    // finished adding the class _md-autofocus, otherwise the focusable element
+    // finished adding the class md-autofocus, otherwise the focusable element
     // isn't available to focus.
     var self = this;
     this._$rootScope['$$postDigest'](function() {
@@ -1278,7 +1300,7 @@ MdPanelRef.prototype._removeEventListeners = function() {
   this._removeListeners && this._removeListeners.forEach(function(removeFn) {
     removeFn();
   });
-  this._removeListeners = null;
+  this._removeListeners = [];
 };
 
 
@@ -1524,10 +1546,13 @@ MdPanelRef.prototype._done = function(callback, self) {
  *   position: panelPosition
  * });
  *
- * @param @const {!angular.$window}
+ * @param {!angular.$window} $window
  * @final @constructor
  */
 function MdPanelPosition($window) {
+  /** @private @const */
+  this._$window = $window;
+
   /** @private {boolean} */
   this._absolute = false;
 
@@ -1554,8 +1579,6 @@ function MdPanelPosition($window) {
 
   /** @private {!Array<{x:string, y:string}>} */
   this._positions = [];
-
-  this._$window = $window;
 
   /** @private {?{x:string, y:string}} */
   this._actualPosition;
@@ -2311,4 +2334,4 @@ function getElement(el) {
   return angular.element(queryResult);
 }
 
-ng.material.components.panel = angular.module("material.components.panel");
+ngmaterial.components.panel = angular.module("material.components.panel");

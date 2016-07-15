@@ -1240,6 +1240,14 @@
   animation-name: fadeIn;
 }
 
+.quickFadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+
 @-webkit-keyframes fadeInDown {
   from {
     opacity: 0;
@@ -1614,6 +1622,13 @@
 .fadeOutLeft {
   -webkit-animation-name: fadeOutLeft;
   animation-name: fadeOutLeft;
+}
+
+.quickFadeOutLeft {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
 }
 
 @-webkit-keyframes fadeOutLeftBig {

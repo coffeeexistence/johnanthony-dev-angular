@@ -4,8 +4,7 @@ function PortfolioController($sce, $scope, $timeout){
   $scope.tabs = {
     tabs: [
       'Code',
-      'Projects & Experience',
-      'Contact'
+      'Projects & Experience'
     ],
     currentIndex: 1,
     set: function(index) {

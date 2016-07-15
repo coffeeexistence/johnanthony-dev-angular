@@ -189,15 +189,36 @@ h5 {
 
 .tab {
   font-size: 20px;
-  padding: 10px 10px 10px 10px;
+  z-index: 0;
+
+  border-style: solid;
+  border-top-style: none;
+  border-width: thin;
+  border-color: $border-color-light;
   border-radius: 7px;
+
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 .tab a {
+  padding: 10px 30px 10px 30px;
   color: #545454;
+  text-align: center;
 }
 
 
+.front-link-icons ng-md-icon {
+  margin: 0.8em;
+}
 
+.show-contact {
+  color: gray;
+  font-size: 1.2em;
+}
+
+.show-contact div {
+  padding: 8px;
+}
 
 .portfolio-header {
   background-color: white;
@@ -205,8 +226,11 @@ h5 {
   background-position: center;
   background-repeat: no-repeat;
   overflow:hidden;
+
+  z-index: 1;
+
   color: grey;
-  margin: 3em 0em 3em 0em;
+  margin: 3em 0em 0em 0em;
   border-radius: 3px;
   text-align: center;
   width: 100%;
@@ -261,4 +285,22 @@ h5 {
 
 .gist-description {
   min-height: 700px;
+}
+
+
+.smoothHeight {
+    -webkit-animation: smooth-expand-height 2s; /* Chrome, Safari, Opera */
+    animation: smooth-expand-height 2s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes smooth-expand-height {
+    0%   {max-height: 0px;}
+    100% {max-height: 20px;}
+}
+
+/* Standard syntax */
+@keyframes smooth-expand-height {
+  0%   {max-height: 0px;}
+  100% {max-height: 20px;}
 }

@@ -1,11 +1,11 @@
 angular
-  .module( 'app', [ 'ngMaterial', 'ui.router', 'ngSanitize', 'angular-bind-html-compile', 'gist-embed'] )
+  .module( 'app', [ 'ngMaterial', 'ui.router', 'ngSanitize', 'angular-bind-html-compile', 'gist-embed', 'ngMdIcons'] )
     .config(function($httpProvider, $stateProvider, $urlMatcherFactoryProvider, $sceDelegateProvider){
 
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-      $sceDelegateProvider.resourceUrlWhitelist([ 
+      $sceDelegateProvider.resourceUrlWhitelist([
         'self',
         "https://www.youtube.com/embed/**"
       ]);

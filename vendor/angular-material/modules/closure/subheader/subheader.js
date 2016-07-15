@@ -2,11 +2,11 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.0-rc4-master-73741db
+ * v1.1.0-rc.5-master-1663341
  */
-goog.provide('ng.material.components.subheader');
-goog.require('ng.material.components.sticky');
-goog.require('ng.material.core');
+goog.provide('ngmaterial.components.subheader');
+goog.require('ngmaterial.components.sticky');
+goog.require('ngmaterial.core');
 /**
  * @ngdoc module
  * @name material.components.subheader
@@ -57,8 +57,8 @@ function MdSubheaderDirective($mdSticky, $compile, $mdTheming, $mdUtil) {
     transclude: true,
     template: (
     '<div class="md-subheader _md">' +
-    '  <div class="_md-subheader-inner">' +
-    '    <div class="_md-subheader-content"></div>' +
+    '  <div class="md-subheader-inner">' +
+    '    <div class="md-subheader-content"></div>' +
     '  </div>' +
     '</div>'
     ),
@@ -69,7 +69,7 @@ function MdSubheaderDirective($mdSticky, $compile, $mdTheming, $mdUtil) {
       var outerHTML = element[0].outerHTML;
 
       function getContent(el) {
-        return angular.element(el[0].querySelector('._md-subheader-content'));
+        return angular.element(el[0].querySelector('.md-subheader-content'));
       }
 
       // Transclude the user-given contents of the subheader
@@ -86,17 +86,21 @@ function MdSubheaderDirective($mdSticky, $compile, $mdTheming, $mdUtil) {
           // compiled clone below will only be a comment tag (since they replace their elements with
           // a comment) which cannot be properly passed to the $mdSticky; so we wrap it in our own
           // DIV to ensure we have something $mdSticky can use
-          var wrapperHtml = '<div class="_md-subheader-wrapper">' + outerHTML + '</div>';
-          var stickyClone = $compile(wrapperHtml)(scope);
-
-          // Append the sticky
-          $mdSticky(scope, element, stickyClone);
+          var wrapper = $compile('<div class="md-subheader-wrapper">' + outerHTML + '</div>')(scope);
 
           // Delay initialization until after any `ng-if`/`ng-repeat`/etc has finished before
           // attempting to create the clone
           $mdUtil.nextTick(function() {
-            getContent(stickyClone).append(clone);
+            // Append our transcluded clone into the wrapper.
+            // We don't have to recompile the element again, because the clone is already
+            // compiled in it's transclusion scope. If we recompile the outerHTML of the new clone, we would lose
+            // our ngIf's and other previous registered bindings / properties.
+            getContent(wrapper).append(clone);
           });
+
+          // Make the element sticky and provide the stickyClone our self, to avoid recompilation of the subheader
+          // element.
+          $mdSticky(scope, element, wrapper);
         });
       }
     }
@@ -104,4 +108,4 @@ function MdSubheaderDirective($mdSticky, $compile, $mdTheming, $mdUtil) {
 }
 MdSubheaderDirective.$inject = ["$mdSticky", "$compile", "$mdTheming", "$mdUtil"];
 
-ng.material.components.subheader = angular.module("material.components.subheader");
+ngmaterial.components.subheader = angular.module("material.components.subheader");

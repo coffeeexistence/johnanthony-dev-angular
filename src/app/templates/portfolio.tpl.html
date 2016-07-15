@@ -1,10 +1,10 @@
 <md-content class="animated fadeIn" style="height: 100%; width:100%" >
   <div layout="row" flex="99" class="" layout-align="center center">
     <div class="portfolio-header md-whiteframe-z1 clearfix"
-    layout="row"
-    layout-align="center center"
-    layout-wrap
-    flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+         layout="row"
+         layout-align="center center"
+         layout-wrap
+         flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
 
       <div flex="99" flex-gt-sm="99" class="secondary-grey-lighten-1 name">
         John <span class="secondary-grey-lighten-4">Anthony</span> Rivera<br>
@@ -19,43 +19,45 @@
 
   <div layout="row" flex="99" layout-align="center center">
     <div class="tab-selector"
-    layout="row" layout-align="space-around center"
-    flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+         layout="row" layout-align="center start"
+         flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
 
       <div ng-repeat="tab in tabs.tabs track by $index" class="tab"
-      ng-class="{'tab-selected': tabs.selected($index), 'tab-unselected': !tabs.selected($index)}">
-        <a flex href ng-click="tabs.set($index)">{{tabs.tabs[$index]}}</a>
+           ng-class="{'tab-selected': tabs.selected($index), 'tab-unselected': !tabs.selected($index)}"
+           layout="row" layout-align="center center">
+        <a href ng-click="tabs.set($index)">{{tabs.tabs[$index]}}</a>
       </div>
-
-
-
     </div>
   </div>
 
 
-  <div ng-show="tabs.on('Contact')" layout="column" layout-align="center center" flex="99">
 
-    <div id="contacts-container" class="animated fadeInRight"
-    layout="column" layout-align="start start"
-    flex-xs="99" flex-sm="95" flex-md="85" flex-gt-md="70">
+  <div layout="row" flex="99" layout-align="center center" class="front-link-icons">
+    <a href="https://twitter.com/johnanthony_dev" target="_blank">
+      <ng-md-icon icon="twitter" style="fill: grey" size="32"></ng-md-icon>
+    </a>
+    <a href="https://www.linkedin.com/in/johnanthonydev" target="_blank">
+      <ng-md-icon icon="linkedin" style="fill: grey" size="32"></ng-md-icon>
+    </a>
+    <a href="https://github.com/coffeeexistence" target="_blank">
+      <ng-md-icon icon="github-circle" style="fill: grey" size="32"></ng-md-icon>
+    </a>
 
-      <div class="contact-item" layout="row" layout-align="center center">
-        <md-icon class="material-icons md-48">phone_iphone</md-icon>
-        <div>951-553-4461</div>
-      </div>
+    <a href ng-click="showEmail = !showEmail;">
+      <ng-md-icon icon="email" style="fill: grey" size="32"></ng-md-icon>
+    </a>
+    <a href ng-click="showPhone = !showPhone;">
+      <ng-md-icon icon="phone" style="fill: grey" size="32"></ng-md-icon>
+    </a>
+  </div>
 
-      <div class="contact-item" layout="row" layout-align="center center">
-        <md-icon class="material-icons md-48">mail_outline</md-icon>
-        <div>johnanthony.dev@gmail.com</div>
-      </div>
-
-      <div class="contact-item" layout="row" layout-align="center center">
-        <md-icon class="material-icons md-48">code</md-icon>
-        <div>Github: coffeeexistence</div>
-      </div>
-
+  <div class="show-contact" layout="column" flex="99" layout-align="center center">
+    <div ng-show="showPhone" class="animated quickFadeIn" ng-class="{quickFadeOutLeft: !showPhone}">
+      <span>(951) 553-4461</span>
     </div>
-
+    <div ng-show="showEmail" class="animated quickFadeIn" ng-class="{quickFadeOutLeft: !showEmail}">
+      <span>johnanthony.dev@gmail.com</span>
+    </div>
   </div>
 
   <div ng-show="tabs.on('Code')" layout="row" layout-align="center center" layout-padding>
